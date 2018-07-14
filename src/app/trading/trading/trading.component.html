@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>交易資料維護</h4>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+    <div class="col-md-12">
+      <app-trading-query (queryEvent)="query($event)"></app-trading-query>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-outline-success" (click)="doCreate()">新增</button>
+      <app-trading-list [datalist]="data" (selectEvent)="doSelect($event)"></app-trading-list>
+    </div>
+    <div class="col-md-6">
+      <div class="row" *ngIf="saveMessage !== ''">
+        <div class="alert alert-info">
+          <strong>{{ saveMessage }}</strong>
+        </div>
+      </div>
+      <div class="row">
+        <app-trading-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-trading-edit>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>配送方式資料維護</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-outline-success" (click)="doCreate()">新增</button>
+      <app-delivery-type-list [datalist]="data" (selectEvent)="doSelect($event)"></app-delivery-type-list>
+    </div>
+    <div class="col-md-6">
+      <div class="row" *ngIf="saveMessage !== ''">
+        <div class="alert alert-info">
+          <strong>{{ saveMessage }}</strong>
+        </div>
+      </div>
+      <div class="row">
+        <app-delivery-type-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-delivery-type-edit>
+      </div>
+    </div>
+  </div>
+</div>

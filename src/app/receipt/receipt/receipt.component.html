@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>下單付款資料維護</h4>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+    <div class="col-md-12">
+      <app-receipt-query (queryEvent)="query($event)"></app-receipt-query>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-outline-success" (click)="doCreate()">新增</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-receipt-list *ngIf="data" [datalist]="data" (selectEvent)="doSelect($event)"></app-receipt-list>
+        </div>
+      </div>
+      <div class="row" *ngIf="unPaid">
+        <div class="col-md-12">
+          <app-unpaid-order [datalist]="unPaid" (payEvent)="doPay($event)" (cancelpayEvent)="doCancelPay()"></app-unpaid-order>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row" *ngIf="saveMessage !== ''">
+        <div class="alert alert-info">
+          <strong>{{ saveMessage }}</strong>
+        </div>
+      </div>
+      <div class="row" *ngIf="!isCreate">
+        <app-receipt-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-receipt-edit>
+      </div>
+    </div>
+  </div>
+</div>

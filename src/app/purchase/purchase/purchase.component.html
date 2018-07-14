@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>下單進貨資料維護</h4>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+    <div class="col-md-12">
+      <app-purchase-query (queryEvent)="query($event)"></app-purchase-query>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-outline-success" (click)="doCreate()">新增</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-purchase-list *ngIf="data" [datalist]="data" (selectEvent)="doSelect($event)"></app-purchase-list>
+        </div>
+      </div>
+      <div class="row" *ngIf="unpurchased">
+        <div class="col-md-12">
+          <app-unpurchased-order [datalist]="unpurchased" (payEvent)="doPay($event)" (cancelpayEvent)="doCancelPay()"></app-unpurchased-order>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row" *ngIf="saveMessage !== ''">
+        <div class="alert alert-info">
+          <strong>{{ saveMessage }}</strong>
+        </div>
+      </div>
+      <div class="row" *ngIf="!isCreate">
+        <app-purchase-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-purchase-edit>
+      </div>
+    </div>
+  </div>
+</div>

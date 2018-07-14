@@ -1,0 +1,65 @@
+<div *ngIf="item">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="id">代碼</label>
+        <input type="text" class="form-control" id="id" name="id" [(ngModel)]="item.ID" disabled>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="name">名稱</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.Name" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="style">樣式</label>
+        <input type="text" class="form-control" id="style" name="style" [(ngModel)]="item.Style">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="supplierproductno">供應商商品編號</label>
+        <input type="text" class="form-control" id="supplierproductno" name="supplierproductno" [(ngModel)]="item.SupplierProductNo">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="wholesaleprice">批發價</label>
+        <input type="number" class="form-control" id="wholesaleprice" name="wholesaleprice" [(ngModel)]="item.WholesalePrice">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="retailprice">零售價</label>
+        <input type="number" class="form-control" id="retailprice" name="retailprice" [(ngModel)]="item.RetailPrice">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nationid">國家</label>
+        <select class="form-control" id="nationid" name="nationid" [(ngModel)]="item.NationID">
+          <option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+          <label for="supplierid">供應商</label>
+          <select class="form-control" id="supplierid" name="supplierid" [(ngModel)]="item.SupplierID">
+            <option *ngFor="let item of supplierlist" [value]="item.ID">{{item.Name}}</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="remark">備註</label>
+        <!-- <input type="text" class="form-control" id="remark" name="remark" [(ngModel)]="item.remark"> -->
+        <textarea class="form-control" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <button type="button" class="btn btn-outline-primary" (click)="update()">儲存</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="!isCreate" (click)="delete()">刪除</button>
+        <button type="button" class="btn btn-outline-warning" (click)="cancel()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+<p *ngIf="!item">
+  <strong>請選擇資料...</strong>
+</p>

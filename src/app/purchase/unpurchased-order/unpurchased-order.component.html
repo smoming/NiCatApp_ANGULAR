@@ -1,0 +1,22 @@
+<div *ngIf="datalist?.length > 0">
+  <div style="height:auto;overflow:auto;max-height: 700px;" class="row">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" style="cursor: pointer;" *ngFor="let item of datalist">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [attr.data-transno]="item.TransNo" (change)="docheck($event)">
+          </label>
+        </div>
+        下單編號: {{item.TransNo}} &nbsp; 下單日期: {{item.TradeDate}}
+        <br> 商品: {{item.CommodityID}} &nbsp; 數量: {{item.TradeQuantity}} &nbsp; 金額: {{item.TradeAmount}}
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <button type="button" class="btn btn-outline-primary" (click)="doPay()">儲存</button>
+    <button type="button" class="btn btn-outline-danger" (click)="cancel()">取消</button>
+  </div>
+</div>
+<div *ngIf="datalist?.length <= 0">
+  <span>查無未付款進貨下單</span>
+</div>

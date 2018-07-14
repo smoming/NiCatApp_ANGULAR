@@ -1,0 +1,24 @@
+<div *ngIf="item">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="id">代碼</label>
+        <input type="text" class="form-control" id="id" name="id" [(ngModel)]="item.ID" [disabled]="!isCreate">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="name">名稱</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.Name" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <button type="button" class="btn btn-outline-primary" (click)="update()">儲存</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="!isCreate" (click)="delete()">刪除</button>
+        <button type="button" class="btn btn-outline-warning" (click)="cancel()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+<p *ngIf="!item">
+  <strong>請選擇資料...</strong>
+</p>

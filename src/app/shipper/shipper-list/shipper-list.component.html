@@ -1,0 +1,14 @@
+<div *ngIf="datalist?.length > 0">
+  <div style="height:700px;overflow:auto;">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" style="cursor: pointer;" *ngFor="let item of datalist" (click)="doSelect(item)">
+        出貨編號: {{item.TransNo}} &nbsp; 出貨日期: {{item.TradeDate | date: 'yyyy-MM-dd'}}
+        <br>
+        &nbsp; 買家: {{item.Buyer}} &nbsp; 交易金額: {{item.TradeAmount}}&nbsp; 運費: {{item.Fee}}
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="datalist?.length <= 0">
+  查無資料
+</div>

@@ -1,0 +1,57 @@
+<div *ngIf="item">
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="transNo">出貨編號</label>
+        <input type="text" class="form-control" id="transNo" name="transNo"
+        [(ngModel)]="item.TransNo" disabled>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="tradeDate">出貨日期</label>
+        <input type="date" class="form-control" id="tradeDate" name="tradeDate"
+        [(ngModel)]="item.TradeDate" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="Buyer">買家</label>
+        <input type="text" class="form-control" id="Buyer" name="Buyer"
+        [(ngModel)]="item.Buyer" disabled>
+      </div>
+      <div class="form-group col-md-6">
+          <label for="Delivery">配送</label>
+          <select class="form-control" id="Delivery" name="Delivery" [(ngModel)]="item.Delivery">
+            <option *ngFor="let item of deliverylist" [value]="item.ID">{{item.Name}}</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="tradeAmount">金額</label>
+        <input type="number" class="form-control" id="tradeAmount" name="tradeAmount"
+        [(ngModel)]="item.TradeAmount">
+      </div>
+      <div class="form-group col-md-6">
+          <label for="Fee">運費</label>
+          <input type="number" class="form-control" id="Fee" name="Fee"
+          [(ngModel)]="item.Fee">
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="remark">備註</label>
+        <textarea class="form-control" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <button type="button" class="btn btn-outline-primary" (click)="update()">儲存</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="!isCreate" (click)="delete()">刪除</button>
+        <button type="button" class="btn btn-outline-warning" (click)="cancel()">取消</button>
+      </div>
+    </div>
+  </form>
+</div>
+<p *ngIf="!item">
+  <strong>請選擇資料...</strong>
+</p>
