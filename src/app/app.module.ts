@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ReceiptModule } from './receipt/receipt.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { ShipperModule } from './shipper/shipper.module';
 import { CashFlowModule } from './cash-flow/cash-flow.module';
+import { SharedMaterialModule } from './shared-material/shared-material.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { CashFlowModule } from './cash-flow/cash-flow.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedMaterialModule,
     DeliveryTypeModule,
     NationModule,
     SupplierModule,
