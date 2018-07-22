@@ -13,8 +13,12 @@
     </ul>
   </div>
   <div class="row">
-    <button type="button" class="btn btn-outline-primary" (click)="doPay()">儲存</button>
-    <button type="button" class="btn btn-outline-danger" (click)="cancel()">取消</button>
+    <button type="button" mat-raised-button color="primary" (click)="doPay()">
+      <mat-icon>save</mat-icon>儲存
+    </button>
+    <button type="button" mat-raised-button color="primary" (click)="cancel()">
+      <mat-icon>close</mat-icon>取消
+    </button>
   </div>
 </div>
 <div *ngIf="datalist?.length <= 0">

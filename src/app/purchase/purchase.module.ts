@@ -8,12 +8,14 @@ import { PurchaseEditComponent } from './purchase-edit/purchase-edit.component';
 import { PurchaseQueryComponent } from './purchase-query/purchase-query.component';
 import { FormsModule } from '@angular/forms';
 import { UnpurchasedOrderComponent } from './unpurchased-order/unpurchased-order.component';
+import { SharedMaterialModule } from '../shared-material/shared-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    PurchaseRoutingModule
+    PurchaseRoutingModule,
+    SharedMaterialModule
   ],
   declarations: [PurchaseComponent, PurchaseListComponent, PurchaseEditComponent, PurchaseQueryComponent, UnpurchasedOrderComponent]
 })
