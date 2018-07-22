@@ -1,37 +1,61 @@
 <div *ngIf="item">
   <form>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="id">代碼</label>
         <input type="text" class="form-control" id="id" name="id" [(ngModel)]="item.ID" disabled>
       </div>
       <div class="form-group col-md-6">
         <label for="name">名稱</label>
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.Name" required>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="代碼" id="id" name="id" [(ngModel)]="item.ID" disabled>
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="名稱" id="name" name="name" [(ngModel)]="item.Name" required>
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="style">樣式</label>
         <input type="text" class="form-control" id="style" name="style" [(ngModel)]="item.Style">
       </div>
       <div class="form-group col-md-6">
         <label for="supplierproductno">供應商商品編號</label>
         <input type="text" class="form-control" id="supplierproductno" name="supplierproductno" [(ngModel)]="item.SupplierProductNo">
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="樣式" id="style" name="style" [(ngModel)]="item.Style">
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="供應商商品編號" id="supplierproductno" name="supplierproductno" [(ngModel)]="item.SupplierProductNo">
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="wholesaleprice">批發價</label>
         <input type="number" class="form-control" id="wholesaleprice" name="wholesaleprice" [(ngModel)]="item.WholesalePrice">
       </div>
       <div class="form-group col-md-6">
         <label for="retailprice">零售價</label>
         <input type="number" class="form-control" id="retailprice" name="retailprice" [(ngModel)]="item.RetailPrice">
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <span matPrefix>
+          <mat-icon>attach_money</mat-icon>
+        </span>
+        <input matInput type="number" placeholder="批發價" id="wholesaleprice" name="wholesaleprice" [(ngModel)]="item.WholesalePrice">
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <span matPrefix>
+          <mat-icon>attach_money</mat-icon>
+        </span>
+        <input matInput type="number" placeholder="零售價" id="retailprice" name="retailprice" [(ngModel)]="item.RetailPrice">
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="nationid">國家</label>
         <select class="form-control" id="nationid" name="nationid" [(ngModel)]="item.NationID">
           <option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</option>
@@ -42,14 +66,27 @@
         <select class="form-control" id="supplierid" name="supplierid" [(ngModel)]="item.SupplierID">
           <option *ngFor="let item of supplierlist" [value]="item.ID">{{item.Name}}</option>
         </select>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <mat-select placeholder="國家" id="nationid" name="nationid" [(ngModel)]="item.NationID" required>
+          <mat-option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <mat-select placeholder="供應商" id="supplierid" name="supplierid" [(ngModel)]="item.SupplierID" required>
+          <mat-option *ngFor="let item of supplierlist" [value]="item.ID">{{item.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
+      <!-- <div class="form-group col-md-12">
         <label for="remark">備註</label>
-        <!-- <input type="text" class="form-control" id="remark" name="remark" [(ngModel)]="item.remark"> -->
         <textarea class="form-control" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
-      </div>
+      </div> -->
+      <!-- <input type="text" class="form-control" id="remark" name="remark" [(ngModel)]="item.remark"> -->
+      <mat-form-field class="form-group col-md-12">
+        <textarea matInput matTextareaAutosize placeholder="備註" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
+      </mat-form-field>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
