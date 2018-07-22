@@ -7,12 +7,14 @@ import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderEditComponent } from './order-edit/order-edit.component';
 import { OrderQueryComponent } from './order-query/order-query.component';
+import { SharedMaterialModule } from '../shared-material/shared-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    OrderRoutingModule
+    OrderRoutingModule,
+    SharedMaterialModule
   ],
   declarations: [OrderComponent, OrderListComponent, OrderEditComponent, OrderQueryComponent]
 })
