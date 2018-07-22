@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { CashFlowRoutingModule } from './cash-flow-routing.module';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
+import { SharedMaterialModule } from '../shared-material/shared-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    CashFlowRoutingModule
+    CashFlowRoutingModule,
+    SharedMaterialModule
   ],
   declarations: [CashFlowComponent]
 })
