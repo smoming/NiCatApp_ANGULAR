@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatIconModule, MatExpansionModule,
-  MatSidenavModule, MatListModule, MatToolbarModule
+  MatSidenavModule, MatListModule, MatToolbarModule, MatInputModule, MatFormFieldModule,
 } from '@angular/material';
 
 @NgModule({
@@ -11,6 +11,7 @@ import {
   ],
   declarations: [],
   exports: [MatButtonModule, MatIconModule, MatExpansionModule,
-    MatSidenavModule, MatListModule, MatToolbarModule]
+    MatSidenavModule, MatListModule, MatToolbarModule,
+    MatInputModule, MatFormFieldModule]
 })
 export class SharedMaterialModule { }
