@@ -8,12 +8,14 @@ import { ReceiptEditComponent } from './receipt-edit/receipt-edit.component';
 import { ReceiptQueryComponent } from './receipt-query/receipt-query.component';
 import { FormsModule } from '@angular/forms';
 import { UnpaidOrderComponent } from './unpaid-order/unpaid-order.component';
+import { SharedMaterialModule } from '../shared-material/shared-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReceiptRoutingModule
+    ReceiptRoutingModule,
+    SharedMaterialModule
   ],
   declarations: [ReceiptComponent, ReceiptListComponent, ReceiptEditComponent, ReceiptQueryComponent, UnpaidOrderComponent]
 })

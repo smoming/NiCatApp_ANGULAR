@@ -3,20 +3,17 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="transNo">付款編號</label>
-        <input type="text" class="form-control" id="transNo" name="transNo"
-        [(ngModel)]="item.TransNo" disabled>
+        <input type="text" class="form-control" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
       </div>
       <div class="form-group col-md-6">
         <label for="tradeDate">付款日期</label>
-        <input type="date" class="form-control" id="tradeDate" name="tradeDate"
-        [(ngModel)]="item.TradeDate" required>
+        <input type="date" class="form-control" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="tradeAmount">金額</label>
-        <input type="number" class="form-control" id="tradeAmount" name="tradeAmount"
-        [(ngModel)]="item.TradeAmount">
+        <input type="number" class="form-control" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
       </div>
     </div>
     <div class="form-row">
@@ -27,9 +24,15 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
-        <button type="button" class="btn btn-outline-primary" (click)="update()">儲存</button>
-        <button type="button" class="btn btn-outline-danger" *ngIf="!isCreate" (click)="delete()">刪除</button>
-        <button type="button" class="btn btn-outline-warning" (click)="cancel()">取消</button>
+        <button type="button" mat-raised-button color="primary" (click)="update()">
+          <mat-icon>save</mat-icon>儲存
+        </button>
+        <button type="button" mat-raised-button color="primary" *ngIf="!isCreate" (click)="delete()">
+          <mat-icon>delete</mat-icon>刪除
+        </button>
+        <button type="button" mat-raised-button color="primary" (click)="cancel()">
+          <mat-icon>close</mat-icon>取消
+        </button>
       </div>
     </div>
   </form>
