@@ -1,22 +1,33 @@
 <div *ngIf="item">
   <form>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="id">代碼</label>
         <input type="text" class="form-control" id="id" name="id" [(ngModel)]="item.ID" [disabled]="!isCreate">
       </div>
       <div class="form-group col-md-6">
         <label for="name">名稱</label>
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.Name" required>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="代碼" id="id" name="id" [(ngModel)]="item.ID" [disabled]="!isCreate" required>
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="名稱" id="name" name="name" [(ngModel)]="item.Name" required>
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
+      <!-- <div class="form-group col-md-12">
         <label for="nationid">國家</label>
         <select class="form-control" id="nationid" name="nationid" [(ngModel)]="item.NationID">
           <option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</option>
         </select>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-12">
+        <mat-select placeholder="國家" id="nationid" name="nationid" [(ngModel)]="item.NationID" required>
+          <mat-option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">

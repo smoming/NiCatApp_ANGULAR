@@ -10,7 +10,7 @@
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="item.Name" required>
       </div> -->
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="text" placeholder="代碼" id="id" name="id" [(ngModel)]="item.ID" [disabled]="!isCreate">
+        <input matInput type="text" placeholder="代碼" id="id" name="id" [(ngModel)]="item.ID" [disabled]="!isCreate" required>
       </mat-form-field>
       <mat-form-field>
         <input matInput type="text" placeholder="名稱" id="name" name="name" [(ngModel)]="item.Name" required>
