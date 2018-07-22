@@ -1,4 +1,4 @@
-<div class="d-flex flex-row">
+<!-- <div class="d-flex flex-row">
   <h4>結帳/回帳作業</h4>
 </div>
 <div id="accordianId" role="tablist" aria-multiselectable="true" style="margin-top: 1%;">
@@ -32,7 +32,30 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      結帳/回帳作業
+    </mat-expansion-panel-header>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <label for="StartDate">執行日期</label>
+          <input type="date" class="form-control form-control-sm" name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="executeDate">
+        </div>
+      </div>
+    </div>
+    <mat-action-row>
+      <button type="button" mat-raised-button color="primary" (click)="doAccount()">
+        <mat-icon>rotate_right</mat-icon>結帳
+      </button>
+      <button type="button" mat-raised-button color="warn" (click)="doUnAccount()">
+        <mat-icon>rotate_left</mat-icon>回帳
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
 <div *ngIf="saveMessage !== ''" class="alert alert-info">
   <strong>{{ saveMessage }}</strong>
 </div>

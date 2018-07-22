@@ -1,4 +1,4 @@
-<div id="accordianId" role="tablist" aria-multiselectable="true">
+<!-- <div id="accordianId" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" role="tab" id="section1HeaderId">
       <strong class="mb-0">
@@ -41,4 +41,41 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-icon>search</mat-icon>
+      查詢
+    </mat-expansion-panel-header>
+    <form #query="ngForm" (submit)="doQuery(query)">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="StartDate">下單日期(起)</label>
+            <input type="date" class="form-control form-control-sm" name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="item.StartDate">
+          </div>
+          <div class="col-md-3">
+            <label for="EndDate">下單日期(迄)</label>
+            <input type="date" class="form-control form-control-sm" name="EndDate" id="EndDate" aria-describedby="helpId" [(ngModel)]="item.EndDate">
+          </div>
+          <div class="col-md-3">
+            <label for="Buyer">買家</label>
+            <input type="text" class="form-control form-control-sm" name="Buyer" id="Buyer" aria-describedby="helpId" [(ngModel)]="item.Buyer">
+          </div>
+          <div class="col-md-3">
+            <label for="CommodityID">商品代碼</label>
+            <select class="form-control" id="CommodityID" name="CommodityID" [(ngModel)]="item.CommodityID">
+              <option *ngFor="let item of commoditylist" [value]="item.ID">{{item.Name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary">
+          <mat-icon>search</mat-icon>查詢
+        </button>
+      </mat-action-row>
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>
