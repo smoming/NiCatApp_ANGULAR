@@ -8,12 +8,14 @@ import { ShipperEditComponent } from './shipper-edit/shipper-edit.component';
 import { ShipperListComponent } from './shipper-list/shipper-list.component';
 import { ShipperQueryComponent } from './shipper-query/shipper-query.component';
 import { UnshippedTradingComponent } from './unshipped-trading/unshipped-trading.component';
+import { SharedMaterialModule } from '../shared-material/shared-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ShipperRoutingModule
+    ShipperRoutingModule,
+    SharedMaterialModule
   ],
   declarations: [ShipperComponent, ShipperEditComponent, ShipperListComponent, ShipperQueryComponent, UnshippedTradingComponent]
 })
