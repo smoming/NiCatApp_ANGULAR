@@ -12,17 +12,23 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
-          <label for="nationid">國家</label>
-          <select class="form-control" id="nationid" name="nationid" [(ngModel)]="item.NationID">
-            <option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</option>
-          </select>
+        <label for="nationid">國家</label>
+        <select class="form-control" id="nationid" name="nationid" [(ngModel)]="item.NationID">
+          <option *ngFor="let item of nationlist" [value]="item.ID">{{item.Name}}</option>
+        </select>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
-        <button type="button" class="btn btn-outline-primary" (click)="update()">儲存</button>
-        <button type="button" class="btn btn-outline-danger" *ngIf="!isCreate" (click)="delete()">刪除</button>
-        <button type="button" class="btn btn-outline-warning" (click)="cancel()">取消</button>
+        <button type="button" mat-raised-button color="primary" (click)="update()">
+          <mat-icon>save</mat-icon>儲存
+        </button>
+        <button type="button" mat-raised-button color="primary" *ngIf="!isCreate" (click)="delete()">
+          <mat-icon>delete</mat-icon>刪除
+        </button>
+        <button type="button" mat-raised-button color="primary" (click)="cancel()">
+          <mat-icon>close</mat-icon>取消
+        </button>
       </div>
     </div>
   </form>
