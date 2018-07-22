@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a href="#" class="navbar-brand">NiCatApp</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#menu-content">
@@ -9,25 +9,25 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">基本設定</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="nav-link" [routerLink]="['/deliverytype']" routerLinkActive="router-link-active">配送方式資料</a>
-              <a class="nav-link" [routerLink]="['/nation']" routerLinkActive="router-link-active">國家基本資料</a>
-              <a class="nav-link" [routerLink]="['/supplier']" routerLinkActive="router-link-active">供應商基本資料</a>
-              <a class="nav-link" [routerLink]="['/commodity']" routerLinkActive="router-link-active">商品基本資料</a>
+            <a class="nav-link" [routerLink]="['/deliverytype']" routerLinkActive="router-link-active">配送方式資料</a>
+            <a class="nav-link" [routerLink]="['/nation']" routerLinkActive="router-link-active">國家基本資料</a>
+            <a class="nav-link" [routerLink]="['/supplier']" routerLinkActive="router-link-active">供應商基本資料</a>
+            <a class="nav-link" [routerLink]="['/commodity']" routerLinkActive="router-link-active">商品基本資料</a>
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">下單/付款/進貨</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId2">
-              <a class="nav-link" [routerLink]="['/order']" routerLinkActive="router-link-active">下單</a>
-              <a class="nav-link" [routerLink]="['/receipt']" routerLinkActive="router-link-active">付款</a>
-              <a class="nav-link" [routerLink]="['/purchase']" routerLinkActive="router-link-active">進貨</a>
+            <a class="nav-link" [routerLink]="['/order']" routerLinkActive="router-link-active">下單</a>
+            <a class="nav-link" [routerLink]="['/receipt']" routerLinkActive="router-link-active">付款</a>
+            <a class="nav-link" [routerLink]="['/purchase']" routerLinkActive="router-link-active">進貨</a>
           </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">交易/出貨</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId3">
-              <a class="nav-link" [routerLink]="['/trading']" routerLinkActive="router-link-active">交易</a>
-              <a class="nav-link" [routerLink]="['/shipper']" routerLinkActive="router-link-active">出貨</a>
+            <a class="nav-link" [routerLink]="['/trading']" routerLinkActive="router-link-active">交易</a>
+            <a class="nav-link" [routerLink]="['/shipper']" routerLinkActive="router-link-active">出貨</a>
           </div>
         </li>
         <li class="nav-item active">
@@ -37,4 +37,39 @@
     </div>
   </nav>
   <router-outlet></router-outlet>
+</div> -->
+
+<div class="container">
+  <mat-sidenav-container>
+    <mat-sidenav #sideNav mode="push">
+      <mat-nav-list>
+        <h1 matSubheader>基本資料</h1>
+        <a mat-list-item [routerLink]="['/deliverytype']" routerLinkActive="router-link-active">配送方式資料</a>
+        <a mat-list-item [routerLink]="['/nation']" routerLinkActive="router-link-active">國家基本資料</a>
+        <a mat-list-item [routerLink]="['/supplier']" routerLinkActive="router-link-active">供應商基本資料</a>
+        <a mat-list-item [routerLink]="['/commodity']" routerLinkActive="router-link-active">商品基本資料</a>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>下單/付款/進貨</h3>
+        <a mat-list-item [routerLink]="['/order']" routerLinkActive="router-link-active">下單</a>
+        <a mat-list-item [routerLink]="['/receipt']" routerLinkActive="router-link-active">付款</a>
+        <a mat-list-item [routerLink]="['/purchase']" routerLinkActive="router-link-active">進貨</a>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>交易/出貨</h3>
+        <a mat-list-item [routerLink]="['/trading']" routerLinkActive="router-link-active">交易</a>
+        <a mat-list-item [routerLink]="['/shipper']" routerLinkActive="router-link-active">出貨</a>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>交易/出貨</h3>
+        <a mat-list-item [routerLink]="['/cashflow']" routerLinkActive="router-link-active">結帳/回帳</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <mat-toolbar class="toolbar" color="primary">
+        <button mat-icon-button (click)="sideNav.toggle()">
+          <mat-icon>{{ sideNav.opened ? 'close': 'menu' }}</mat-icon>
+        </button>
+        <span>NiCat App</span>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
