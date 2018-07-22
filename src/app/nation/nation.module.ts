@@ -7,13 +7,15 @@ import { NationRoutingModule } from './nation-routing.module';
 import { NationComponent } from './nation/nation.component';
 import { NationListComponent } from './nation-list/nation-list.component';
 import { NationEditComponent } from './nation-edit/nation-edit.component';
+import { SharedMaterialModule } from '../shared-material/shared-material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
-    NationRoutingModule
+    NationRoutingModule,
+    SharedMaterialModule
   ],
   declarations: [NationComponent, NationListComponent, NationEditComponent]
 })
