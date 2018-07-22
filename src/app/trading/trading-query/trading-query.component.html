@@ -14,18 +14,15 @@
             <div class="row">
               <div class="col-md-3">
                 <label for="StartDate">下單日期(起)</label>
-                <input type="date" class="form-control form-control-sm"
-                name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="item.StartDate">
+                <input type="date" class="form-control form-control-sm" name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="item.StartDate">
               </div>
               <div class="col-md-3">
                 <label for="EndDate">下單日期(迄)</label>
-                <input type="date" class="form-control form-control-sm"
-                name="EndDate" id="EndDate" aria-describedby="helpId" [(ngModel)]="item.EndDate">
+                <input type="date" class="form-control form-control-sm" name="EndDate" id="EndDate" aria-describedby="helpId" [(ngModel)]="item.EndDate">
               </div>
               <div class="col-md-3">
                 <label for="Buyer">買家</label>
-                <input type="text" class="form-control form-control-sm"
-                name="Buyer" id="Buyer" aria-describedby="helpId" [(ngModel)]="item.Buyer">
+                <input type="text" class="form-control form-control-sm" name="Buyer" id="Buyer" aria-describedby="helpId" [(ngModel)]="item.Buyer">
               </div>
               <div class="col-md-3">
                 <label for="CommodityID">商品代碼</label>
@@ -36,7 +33,9 @@
             </div>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">查詢</button>
+            <button type="submit" mat-raised-button color="primary">
+              <mat-icon>search</mat-icon>查詢
+            </button>
           </div>
         </form>
       </div>

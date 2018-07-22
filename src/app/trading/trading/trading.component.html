@@ -11,7 +11,9 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <button type="button" class="btn btn-outline-success" (click)="doCreate()">新增</button>
+      <button type="button" mat-raised-button color="primary" (click)="doCreate()">
+        <mat-icon>add</mat-icon>新增
+      </button>
       <app-trading-list [datalist]="data" (selectEvent)="doSelect($event)"></app-trading-list>
     </div>
     <div class="col-md-6">
@@ -26,4 +28,3 @@
     </div>
   </div>
 </div>
-
