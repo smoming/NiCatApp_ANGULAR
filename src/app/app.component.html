@@ -43,6 +43,7 @@
   <mat-sidenav-container>
     <mat-sidenav #sideNav mode="push">
       <mat-nav-list>
+        <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active">首頁</a>
         <h1 matSubheader>基本資料</h1>
         <a mat-list-item [routerLink]="['/deliverytype']" routerLinkActive="router-link-active">配送方式資料</a>
         <a mat-list-item [routerLink]="['/nation']" routerLinkActive="router-link-active">國家基本資料</a>
