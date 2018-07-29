@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
 import { Nation } from '../nation';
+import { MatTableDataSource, MatPaginator } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-nation-list',
@@ -7,6 +8,9 @@ import { Nation } from '../nation';
   styleUrls: ['./nation-list.component.css']
 })
 export class NationListComponent implements OnInit, OnChanges {
+  @ViewChild('paginator') paginator: MatPaginator;
+  totalCount;
+  matTableDS = new MatTableDataSource<any>();
 
   @Input()
   datalist;
@@ -17,18 +21,17 @@ export class NationListComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    // console.log('=====datalist=====');
-    // console.log(this.datalist);
   }
 
   ngOnChanges() {
-    // console.log('=====datalist=====');
-    // console.log(this.datalist);
+    this.matTableDS.paginator = this.paginator;
+    if (this.datalist) {
+      this.matTableDS.data = this.datalist;
+      this.totalCount = this.datalist.length;
+    }
   }
 
   doSelect(item: Nation) {
-    // console.log('=====select=====');
-    // console.log(item);
     this.selectEvent.emit(item);
   }
 

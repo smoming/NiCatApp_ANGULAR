@@ -1,4 +1,4 @@
-<div *ngIf="datalist?.length > 0">
+<!-- <div *ngIf="datalist?.length > 0">
   <div style="height:auto; max-height: 700px; overflow:auto;">
     <ul class="list-group">
       <li class="list-group-item list-group-item-action" style="cursor: pointer;" *ngFor="let item of datalist" (click)="doSelect(item)">
@@ -9,4 +9,19 @@
 </div>
 <div *ngIf="datalist?.length <= 0">
   查無資料
-</div>
+</div> -->
+<mat-paginator #paginator [length]="totalCount" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5,10,15]">
+</mat-paginator>
+<mat-table [dataSource]="matTableDS">
+  <ng-container matColumnDef="ID">
+    <mat-header-cell *matHeaderCellDef>代碼</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.ID }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef>名稱</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.Name }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['ID','Name']"></mat-header-row>
+  <mat-row *matRowDef="let dataRow; columns: ['ID', 'Name']" (click)="doSelect(dataRow)"></mat-row>
+</mat-table>

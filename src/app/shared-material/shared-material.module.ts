@@ -4,6 +4,8 @@ import {
   MatButtonModule, MatIconModule, MatExpansionModule,
   MatSidenavModule, MatListModule, MatToolbarModule, MatInputModule, MatFormFieldModule, MatSelectModule,
   MatDatepickerModule,
+  MatTableModule,
+  MatPaginatorModule,
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
@@ -15,6 +17,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
   exports: [MatButtonModule, MatIconModule, MatExpansionModule,
     MatSidenavModule, MatListModule, MatToolbarModule,
     MatInputModule, MatFormFieldModule, MatSelectModule,
-    MatMomentDateModule, MatDatepickerModule]
+    MatMomentDateModule, MatDatepickerModule,
+    MatTableModule, MatPaginatorModule]
 })
 export class SharedMaterialModule { }
