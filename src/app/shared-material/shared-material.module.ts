@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatIconModule, MatExpansionModule,
   MatSidenavModule, MatListModule, MatToolbarModule, MatInputModule, MatFormFieldModule, MatSelectModule,
+  MatDatepickerModule,
 } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
   imports: [
@@ -12,6 +14,7 @@ import {
   declarations: [],
   exports: [MatButtonModule, MatIconModule, MatExpansionModule,
     MatSidenavModule, MatListModule, MatToolbarModule,
-    MatInputModule, MatFormFieldModule, MatSelectModule]
+    MatInputModule, MatFormFieldModule, MatSelectModule,
+    MatMomentDateModule, MatDatepickerModule]
 })
 export class SharedMaterialModule { }

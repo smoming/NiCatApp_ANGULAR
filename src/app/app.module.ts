@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '../../node_modules/@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,18 @@ import { PurchaseModule } from './purchase/purchase.module';
 import { ShipperModule } from './shipper/shipper.module';
 import { CashFlowModule } from './cash-flow/cash-flow.module';
 import { SharedMaterialModule } from './shared-material/shared-material.module';
+
+const FORMATS_TW = {
+  parse: {
+    dateInput: 'YYYY/MM/DD'
+  },
+  display: {
+    dateInput: 'YYYY/MM/DD',
+    monthYearLabel: 'YYYY MMM',
+    dateA11yLabel: 'YYYY/MM/DD',
+    monthYearA11yLabel: 'YYYY MMM'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -52,6 +65,14 @@ import { SharedMaterialModule } from './shared-material/shared-material.module';
       provide: HTTP_INTERCEPTORS,
       useClass: ResponseInterceptor,
       multi: true
+    },
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: 'zh-TW'
+    },
+    {
+      provide: MAT_DATE_FORMATS,
+      useValue: FORMATS_TW
     }
   ],
   bootstrap: [AppComponent]

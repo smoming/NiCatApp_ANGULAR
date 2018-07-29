@@ -13,7 +13,10 @@
         <input matInput type="text" placeholder="出貨編號" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
       </mat-form-field>
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="date" placeholder="出貨日期" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required>
+        <input matInput type="text" [matDatepicker]="matTradeDate" placeholder="出貨日期" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate"
+          required disabled>
+        <mat-datepicker-toggle [for]="matTradeDate" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #matTradeDate disabled="false"></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="form-row">
