@@ -40,10 +40,13 @@
     </mat-expansion-panel-header>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <!-- <div class="col-md-2">
           <label for="StartDate">執行日期</label>
           <input type="date" class="form-control form-control-sm" name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="executeDate">
-        </div>
+        </div> -->
+        <mat-form-field class="col-md-2">
+          <input matInput type="date" placeholder="執行日期" name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="executeDate">
+        </mat-form-field>
       </div>
     </div>
     <mat-action-row>
