@@ -54,6 +54,7 @@ export class ShipperComponent implements OnInit {
     // c.TradeDate = Extension.toDateStr(new Date());
     // this.selected = c;
     // this.isCreate = true;
+    this.selected = null;
     if (this.add_buyer !== undefined && this.add_buyer !== '') {
       this.svc_trading.GetUnShipped(this.add_buyer).subscribe(res => {
         this.data = null;
