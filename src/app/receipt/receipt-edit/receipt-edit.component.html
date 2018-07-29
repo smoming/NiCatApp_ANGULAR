@@ -1,26 +1,41 @@
 <div *ngIf="item">
   <form>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="transNo">付款編號</label>
         <input type="text" class="form-control" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
       </div>
       <div class="form-group col-md-6">
         <label for="tradeDate">付款日期</label>
         <input type="date" class="form-control" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="付款編號" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="date" placeholder="付款日期" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required>
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="tradeAmount">金額</label>
         <input type="number" class="form-control" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <span matPrefix>
+          <mat-icon>attach_money</mat-icon>
+        </span>
+        <input matInput type="number" placeholder="金額" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
+      <!-- <div class="form-group col-md-12">
         <label for="remark">備註</label>
         <textarea class="form-control" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-12">
+        <textarea matInput [matTextareaAutosize]="true" placeholder="備註" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
+      </mat-form-field>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
