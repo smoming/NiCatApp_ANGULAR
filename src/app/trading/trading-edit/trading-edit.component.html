@@ -1,48 +1,77 @@
 <div *ngIf="item">
   <form>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="transNo">下單編號</label>
         <input type="text" class="form-control" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
       </div>
       <div class="form-group col-md-6">
         <label for="tradeDate">下單日期</label>
         <input type="date" class="form-control" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="下單編號" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="date" placeholder="下單日期" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required>
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="tradeQuantity">數量</label>
         <input type="number" class="form-control" id="tradeQuantity" name="tradeQuantity" [(ngModel)]="item.TradeQuantity">
       </div>
       <div class="form-group col-md-6">
         <label for="tradeAmount">金額</label>
         <input type="number" class="form-control" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="number" placeholder="數量" id="tradeQuantity" name="tradeQuantity" [(ngModel)]="item.TradeQuantity">
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <span matPrefix>
+          <mat-icon>attach_money</mat-icon>
+        </span>
+        <input matInput type="number" placeholder="金額" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
+      <!-- <div class="form-group col-md-12">
         <label for="commodityID">商品代碼</label>
         <select class="form-control" id="commodityID" name="commodityID" [(ngModel)]="item.CommodityID">
           <option *ngFor="let item of commoditylist" [value]="item.ID">{{item.Name}}</option>
         </select>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-12">
+        <mat-select placeholder="商品代碼" id="commodityID" name="commodityID" [(ngModel)]="item.CommodityID" required>
+          <mat-option *ngFor="let item of commoditylist" [value]="item.ID">{{item.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="ShipperNo">付款編號</label>
         <input type="text" class="form-control" id="ShipperNo" name="ShipperNo" [(ngModel)]="item.ShipperNo" disabled>
       </div>
       <div class="form-group col-md-6">
         <label for="Buyer">買家</label>
         <input type="text" class="form-control" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer">
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="付款編號" id="ShipperNo" name="ShipperNo" [(ngModel)]="item.ShipperNo" disabled>
+      </mat-form-field>
+      <mat-form-field class="form-group col-md-6">
+        <input matInput type="text" placeholder="買家" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer">
+      </mat-form-field>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
+      <!-- <div class="form-group col-md-12">
         <label for="remark">備註</label>
         <textarea class="form-control" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
-      </div>
+      </div> -->
+      <mat-form-field class="form-group col-md-12">
+        <textarea matInput [matTextareaAutosize]="true" placeholder="備註" id="remark" name="remark" [(ngModel)]="item.Remark"></textarea>
+      </mat-form-field>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
