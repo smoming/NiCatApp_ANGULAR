@@ -42,14 +42,20 @@
     <form #query="ngForm" (submit)="doQuery(query)">
       <div class="form-group">
         <div class="row">
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <label for="StartDate">進貨日期(起)</label>
             <input type="date" class="form-control form-control-sm" name="StartDate" id="StartDate" aria-describedby="helpId" [(ngModel)]="item.StartDate">
           </div>
           <div class="col-md-3">
             <label for="EndDate">進貨日期(迄)</label>
             <input type="date" class="form-control form-control-sm" name="EndDate" id="EndDate" aria-describedby="helpId" [(ngModel)]="item.EndDate">
-          </div>
+          </div> -->
+          <mat-form-field class="col-md-3">
+            <input matInput type="date" placeholder="進貨日期(起)" name="StartDate" id="StartDate" [(ngModel)]="item.StartDate">
+          </mat-form-field>
+          <mat-form-field class="col-md-3">
+            <input matInput type="date" placeholder="進貨日期(迄)" name="EndDate" id="EndDate" [(ngModel)]="item.EndDate">
+          </mat-form-field>
         </div>
       </div>
       <mat-action-row>
