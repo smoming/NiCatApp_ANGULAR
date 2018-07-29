@@ -126,6 +126,7 @@ export class ShipperComponent implements OnInit {
   }
 
   query(query: ShipperQuery) {
+    this.add_buyer = '';
     this._query = Object.assign({}, query);
     this.isCreate = false;
     this.reload();
