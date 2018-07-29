@@ -1,13 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnChanges } from '@angular/core';
 
 import { Purchase } from '../purchase';
+import { MatPaginator, MatTableDataSource } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-purchase-list',
   templateUrl: './purchase-list.component.html',
   styleUrls: ['./purchase-list.component.css']
 })
-export class PurchaseListComponent implements OnInit {
+export class PurchaseListComponent implements OnInit, OnChanges {
+  @ViewChild('paginator') paginator: MatPaginator;
+  totalCount;
+  matTableDS = new MatTableDataSource<any>();
 
   @Input()
   datalist;
@@ -18,6 +22,14 @@ export class PurchaseListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    this.matTableDS.paginator = this.paginator;
+    if (this.datalist) {
+      this.matTableDS.data = this.datalist;
+      this.totalCount = this.datalist.length;
+    }
   }
 
   doSelect(item: Purchase) {

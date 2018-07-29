@@ -1,4 +1,4 @@
-<div *ngIf="datalist?.length > 0">
+<!-- <div *ngIf="datalist?.length > 0">
   <div style="height:auto; max-height: 700px; overflow:auto;">
     <ul class="list-group">
       <li class="list-group-item list-group-item-action" style="cursor: pointer;" *ngFor="let item of datalist" (click)="doSelect(item)">
@@ -9,4 +9,27 @@
 </div>
 <div *ngIf="datalist?.length <= 0">
   查無資料
-</div>
+</div> -->
+<mat-paginator #paginator [length]="totalCount" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5,10,15]">
+</mat-paginator>
+<mat-table [dataSource]="matTableDS">
+  <ng-container matColumnDef="TradeDate">
+    <mat-header-cell *matHeaderCellDef>交易日期</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.TradeDate | date: 'yyyy/MM/dd' }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="CommodityID">
+    <mat-header-cell *matHeaderCellDef>商品</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ findname(row.CommodityID) }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="TradeQuantity">
+    <mat-header-cell *matHeaderCellDef>數量</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.TradeQuantity }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="TradeAmount">
+    <mat-header-cell *matHeaderCellDef>金額</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.TradeAmount }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['TradeDate','CommodityID','TradeQuantity','TradeAmount']"></mat-header-row>
+  <mat-row *matRowDef="let dataRow; columns: ['TradeDate','CommodityID','TradeQuantity','TradeAmount']" (click)="doSelect(dataRow)"></mat-row>
+</mat-table>

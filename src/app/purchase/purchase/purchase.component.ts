@@ -19,7 +19,6 @@ export class PurchaseComponent implements OnInit {
   constructor(private svc: PurchaseService, private svc_order: OrderService) {
   }
 
-
   data: Purchase[];
   unpurchased: Order[];
   selected: Purchase;
@@ -119,6 +118,7 @@ export class PurchaseComponent implements OnInit {
   }
 
   query(query: PurchaseQuery) {
+    this.selected = null;
     this._query = Object.assign({}, query);
     this.isCreate = false;
     this.reload();

@@ -74,7 +74,7 @@ export class ReceiptComponent implements OnInit {
     } else {
       this.saveMessage = '請選擇欲付款之下單交易';
     }
-     this.saved();
+    this.saved();
   }
 
   doCancelPay() {
@@ -118,6 +118,7 @@ export class ReceiptComponent implements OnInit {
   }
 
   query(query: ReceiptQuery) {
+    this.selected = null;
     this._query = Object.assign({}, query);
     this.isCreate = false;
     this.reload();

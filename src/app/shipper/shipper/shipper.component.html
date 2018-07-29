@@ -22,10 +22,14 @@
         </div>
       </div>
       <div class="row">
-        <app-shipper-list *ngIf="data" [datalist]="data" (selectEvent)="doSelect($event)"></app-shipper-list>
+        <div class="col-md-12">
+          <app-shipper-list *ngIf="data" [datalist]="data" (selectEvent)="doSelect($event)"></app-shipper-list>
+        </div>
       </div>
       <div class="row" *ngIf="unShipped">
-        <app-unshipped-trading [datalist]="unShipped" (payEvent)="doPay($event)" (cancelpayEvent)="doCancelPay()"></app-unshipped-trading>
+        <div class="col-md-12">
+          <app-unshipped-trading [datalist]="unShipped" (payEvent)="doPay($event)" (cancelpayEvent)="doCancelPay()"></app-unshipped-trading>
+        </div>
       </div>
     </div>
     <div class="col-md-6">
