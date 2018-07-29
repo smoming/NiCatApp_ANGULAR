@@ -43,44 +43,44 @@
   <mat-sidenav-container>
     <mat-sidenav #sideNav mode="push">
       <mat-nav-list>
-        <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/']" (click)="sideNav.toggle()">
           <mat-icon>home</mat-icon> &nbsp; 首頁
         </a>
         <h1 matSubheader>基本資料</h1>
-        <a mat-list-item [routerLink]="['/deliverytype']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/deliverytype']" (click)="sideNav.toggle()">
           <mat-icon>local_shipping</mat-icon> &nbsp; 配送方式
         </a>
-        <a mat-list-item [routerLink]="['/nation']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/nation']" (click)="sideNav.toggle()">
           <mat-icon>language</mat-icon> &nbsp; 國家
         </a>
-        <a mat-list-item [routerLink]="['/supplier']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/supplier']" (click)="sideNav.toggle()">
           <mat-icon>store</mat-icon> &nbsp; 供應商
         </a>
-        <a mat-list-item [routerLink]="['/commodity']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/commodity']" (click)="sideNav.toggle()">
           <mat-icon>toc</mat-icon> &nbsp; 商品
         </a>
         <mat-divider></mat-divider>
         <h3 matSubheader>下單/付款/進貨</h3>
-        <a mat-list-item [routerLink]="['/order']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/order']" (click)="sideNav.toggle()">
           <mat-icon>shopping_cart</mat-icon> &nbsp; 下單
         </a>
-        <a mat-list-item [routerLink]="['/receipt']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/receipt']" (click)="sideNav.toggle()">
           <mat-icon>payment</mat-icon> &nbsp; 付款
         </a>
-        <a mat-list-item [routerLink]="['/purchase']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/purchase']" (click)="sideNav.toggle()">
           <mat-icon>local_shipping</mat-icon> &nbsp; 進貨
         </a>
         <mat-divider></mat-divider>
         <h3 matSubheader>交易/出貨</h3>
-        <a mat-list-item [routerLink]="['/trading']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/trading']" (click)="sideNav.toggle()">
           <mat-icon>swap_horiz</mat-icon> &nbsp; 交易
         </a>
-        <a mat-list-item [routerLink]="['/shipper']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/shipper']" (click)="sideNav.toggle()">
           <mat-icon>local_shipping</mat-icon> &nbsp; 出貨
         </a>
         <mat-divider></mat-divider>
         <h3 matSubheader>結帳/回帳</h3>
-        <a mat-list-item [routerLink]="['/cashflow']" routerLinkActive="router-link-active">
+        <a mat-list-item [routerLink]="['/cashflow']" (click)="sideNav.toggle()">
           <mat-icon>done_all</mat-icon> &nbsp; 結帳/回帳
         </a>
       </mat-nav-list>
