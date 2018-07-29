@@ -103,6 +103,7 @@ export class TradingComponent implements OnInit {
   }
 
   query(query: TradingQuery) {
+    this.selected = null;
     this._query = Object.assign({}, query);
     this.reload();
   }

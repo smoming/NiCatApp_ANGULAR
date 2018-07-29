@@ -102,6 +102,7 @@ export class OrderComponent implements OnInit {
   }
 
   query(query: OrderQuery) {
+    this.selected = null;
     this._query = Object.assign({}, query);
     this.reload();
   }
