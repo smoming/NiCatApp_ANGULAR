@@ -6,7 +6,7 @@ import {
   MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSnackBarModule, MatGridListModule
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { SharedSanckBarComponent } from './shared-sanck-bar/shared-sanck-bar.component';
+import { SharedSnackBarComponent } from './shared-snack-bar/shared-snack-bar.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { SharedSanckBarComponent } from './shared-sanck-bar/shared-sanck-bar.com
     MatGridListModule,
     MatButtonModule, MatIconModule, MatSnackBarModule
   ],
-  declarations: [SharedSanckBarComponent],
+  declarations: [SharedSnackBarComponent],
   exports: [MatButtonModule, MatIconModule, MatExpansionModule,
     MatSidenavModule, MatListModule, MatToolbarModule,
     MatInputModule, MatFormFieldModule, MatSelectModule,

@@ -11,7 +11,7 @@ import { OrderService } from '../../order/order.service';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '../../../../node_modules/@angular/material';
 import { BooleanMessage } from '../../shared-material/boolean-message';
-import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
+import { SharedSnackBarComponent } from '../../shared-material/shared-snack-bar/shared-snack-bar.component';
 
 @Component({
   selector: 'app-receipt',
@@ -122,7 +122,7 @@ export class ReceiptComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSnackBarComponent, { data: bm });
   }
   sort() {
     if (this.data) {

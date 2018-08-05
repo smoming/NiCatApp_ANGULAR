@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Nation } from '../nation';
 import { NationService } from '../nation.service';
 import { BooleanMessage } from '../../shared-material/boolean-message';
-import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
 import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { SharedSnackBarComponent } from '../../shared-material/shared-snack-bar/shared-snack-bar.component';
 
 @Component({
   selector: 'app-nation',
@@ -92,7 +92,7 @@ export class NationComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSnackBarComponent, { data: bm });
   }
 
   sort() {

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedSanckBarComponent } from './shared-sanck-bar.component';
+import { SharedSnackBarComponent } from './shared-snack-bar.component';
 
-describe('SharedSanckBarComponent', () => {
-  let component: SharedSanckBarComponent;
-  let fixture: ComponentFixture<SharedSanckBarComponent>;
+describe('SharedSnackBarComponent', () => {
+  let component: SharedSnackBarComponent;
+  let fixture: ComponentFixture<SharedSnackBarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SharedSanckBarComponent ]
+      declarations: [ SharedSnackBarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SharedSanckBarComponent);
+    fixture = TestBed.createComponent(SharedSnackBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

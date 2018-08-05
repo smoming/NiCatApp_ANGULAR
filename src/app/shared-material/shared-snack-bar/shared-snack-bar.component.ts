@@ -3,11 +3,11 @@ import { MatSnackBar, MAT_SNACK_BAR_DATA } from '../../../../node_modules/@angul
 import { BooleanMessage } from '../boolean-message';
 
 @Component({
-  selector: 'app-shared-sanck-bar',
-  templateUrl: './shared-sanck-bar.component.html',
-  styleUrls: ['./shared-sanck-bar.component.css']
+  selector: 'app-shared-snack-bar',
+  templateUrl: './shared-snack-bar.component.html',
+  styleUrls: ['./shared-snack-bar.component.css']
 })
-export class SharedSanckBarComponent implements OnInit {
+export class SharedSnackBarComponent implements OnInit {
 
   constructor(private snackbar: MatSnackBar, @Inject(MAT_SNACK_BAR_DATA) public data: BooleanMessage) { }
 

@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { DeliveryType } from '../delivery-type';
 import { DeliveryTypeService } from '../delivery-type.service';
 import { MatSnackBar } from '../../../../node_modules/@angular/material';
-import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
 import { BooleanMessage } from '../../shared-material/boolean-message';
+import { SharedSnackBarComponent } from '../../shared-material/shared-snack-bar/shared-snack-bar.component';
 
 @Component({
   selector: 'app-delivery-type',
@@ -93,7 +93,7 @@ export class DeliveryTypeComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSnackBarComponent, { data: bm });
   }
 
   sort() {
