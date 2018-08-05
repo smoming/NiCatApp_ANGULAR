@@ -20,6 +20,7 @@ import { PurchaseModule } from './purchase/purchase.module';
 import { ShipperModule } from './shipper/shipper.module';
 import { CashFlowModule } from './cash-flow/cash-flow.module';
 import { SharedMaterialModule } from './shared-material/shared-material.module';
+import { SharedSanckBarComponent } from './shared-material/shared-sanck-bar/shared-sanck-bar.component';
 
 const FORMATS_TW = {
   parse: {
@@ -75,6 +76,7 @@ const FORMATS_TW = {
       useValue: FORMATS_TW
     }
   ],
+  entryComponents: [SharedSanckBarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

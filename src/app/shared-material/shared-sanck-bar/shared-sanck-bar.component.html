@@ -1,0 +1,29 @@
+<!-- <div>
+  <div style="float: left;">
+    <h4>系統資訊</h4>
+  </div>
+
+  <div style="float: right;">
+    <button mat-icon-button (click)="closeSnackBar()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div>
+  <p [ngClass]="data.IsSuccess ? 'success' : 'error'">{{ data.Message }}</p>
+</div> -->
+
+<mat-grid-list [cols]="10" rowHeight="3rem">
+  <mat-grid-tile [colspan]="9">
+    <h4>系統資訊</h4>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-icon-button (click)="closeSnackBar()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="9" class="video-title">
+    <h5 [ngClass]="data.IsSuccess ? 'success' : 'error'">{{ data.Message }}</h5>
+  </mat-grid-tile>
+</mat-grid-list>

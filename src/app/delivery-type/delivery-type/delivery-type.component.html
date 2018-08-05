@@ -12,11 +12,11 @@
       <app-delivery-type-list [datalist]="data" (selectEvent)="doSelect($event)"></app-delivery-type-list>
     </div>
     <div class="col-md-6">
-      <div class="row" *ngIf="saveMessage !== ''">
+      <!-- <div class="row" *ngIf="saveMessage !== ''">
         <div class="alert alert-info">
           <strong>{{ saveMessage }}</strong>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <app-delivery-type-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-delivery-type-edit>
       </div>

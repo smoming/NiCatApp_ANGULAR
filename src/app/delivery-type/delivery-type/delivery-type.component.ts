@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { DeliveryType } from '../delivery-type';
 import { DeliveryTypeService } from '../delivery-type.service';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
+import { BooleanMessage } from '../../shared-material/boolean-message';
 
 @Component({
   selector: 'app-delivery-type',
@@ -10,13 +13,12 @@ import { DeliveryTypeService } from '../delivery-type.service';
 })
 export class DeliveryTypeComponent implements OnInit {
 
-  constructor(private svc: DeliveryTypeService) {
+  constructor(private svc: DeliveryTypeService, private snackbar: MatSnackBar) {
   }
 
   data: DeliveryType[];
   selected: DeliveryType;
   isCreate = false;
-  saveMessage = '';
 
   ngOnInit() {
     this.svc.look().subscribe(res => {
@@ -39,9 +41,16 @@ export class DeliveryTypeComponent implements OnInit {
     if (this.isCreate) {
       this.svc.add(item).subscribe(res => {
         this.data.push(item);
-        this.saveMessage = '新增成功';
+        this.data = this.data.map((v) => {
+          return v;
+        });
+        // this.saveMessage = '新增成功';
+        this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     } else {
       this.svc.update(item).subscribe(res => {
         this.data = this.data.map((v) => {
@@ -50,9 +59,13 @@ export class DeliveryTypeComponent implements OnInit {
           }
           return v;
         });
-        this.saveMessage = '修改成功';
+        // this.saveMessage = '修改成功';
+        this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     }
   }
 
@@ -61,19 +74,27 @@ export class DeliveryTypeComponent implements OnInit {
       this.data = this.data.filter((v) => {
         return v.ID !== item.ID;
       });
-      this.saveMessage = '刪除成功';
+      // this.saveMessage = '刪除成功';
+      this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
-    }, err => console.log(err));
+    }, err => {
+      this.showMsg(BooleanMessage.CreateFail(err));
+      console.log(err);
+    });
   }
 
   saved() {
     this.selected = null;
     this.isCreate = false;
 
-    this.sort();
-    setTimeout(() => {
-      this.saveMessage = '';
-    }, 3000);
+    // this.sort();
+    // setTimeout(() => {
+    //   this.saveMessage = '';
+    // }, 3000);
+  }
+
+  showMsg(bm: BooleanMessage) {
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 
   sort() {
