@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Commodity } from '../commodity';
 import { CommodityService } from '../commodity.service';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { BooleanMessage } from '../../shared-material/boolean-message';
+import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
 
 @Component({
   selector: 'app-commodity',
@@ -9,13 +12,12 @@ import { CommodityService } from '../commodity.service';
 })
 export class CommodityComponent implements OnInit {
 
-  constructor(private svc: CommodityService) {
+  constructor(private svc: CommodityService, private sanckbar: MatSnackBar) {
   }
 
   data: Commodity[];
   selected: Commodity;
   isCreate = false;
-  saveMessage = '';
 
   ngOnInit() {
     this.reload();
@@ -42,9 +44,15 @@ export class CommodityComponent implements OnInit {
     if (this.isCreate) {
       this.svc.add(item).subscribe(res => {
         // this.data.push(item);
-        this.saveMessage = '新增成功';
+        // this.data = this.data.map((v) => {
+        //   return v;
+        // });
+        this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     } else {
       this.svc.update(item).subscribe(res => {
         // this.data = this.data.map((v) => {
@@ -53,9 +61,12 @@ export class CommodityComponent implements OnInit {
         //   }
         //   return v;
         // });
-        this.saveMessage = '修改成功';
+        this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     }
   }
 
@@ -64,9 +75,12 @@ export class CommodityComponent implements OnInit {
       // this.data = this.data.filter((v) => {
       //   return v.ID !== item.ID;
       // });
-      this.saveMessage = '刪除成功';
+      this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
-    }, err => console.log(err));
+    }, err => {
+      this.showMsg(BooleanMessage.CreateFail(err));
+      console.log(err);
+    });
   }
 
   saved() {
@@ -75,11 +89,11 @@ export class CommodityComponent implements OnInit {
 
     this.reload();
     this.sort();
-    setTimeout(() => {
-      this.saveMessage = '';
-    }, 3000);
   }
 
+  showMsg(bm: BooleanMessage) {
+    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+  }
   sort() {
     this.data.sort((a, b) => {
       return a.ID > b.ID ? 1 : -1;

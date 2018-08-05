@@ -13,7 +13,7 @@ import { BooleanMessage } from '../../shared-material/boolean-message';
 })
 export class DeliveryTypeComponent implements OnInit {
 
-  constructor(private svc: DeliveryTypeService, private snackbar: MatSnackBar) {
+  constructor(private svc: DeliveryTypeService, private sanckbar: MatSnackBar) {
   }
 
   data: DeliveryType[];
@@ -21,6 +21,10 @@ export class DeliveryTypeComponent implements OnInit {
   isCreate = false;
 
   ngOnInit() {
+    this.reload();
+  }
+
+  reload() {
     this.svc.look().subscribe(res => {
       this.data = res;
       this.sort();
@@ -40,11 +44,10 @@ export class DeliveryTypeComponent implements OnInit {
   doUpdate(item: DeliveryType) {
     if (this.isCreate) {
       this.svc.add(item).subscribe(res => {
-        this.data.push(item);
-        this.data = this.data.map((v) => {
-          return v;
-        });
-        // this.saveMessage = '新增成功';
+        // this.data.push(item);
+        // this.data = this.data.map((v) => {
+        //   return v;
+        // });
         this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.saved();
       }, err => {
@@ -53,13 +56,12 @@ export class DeliveryTypeComponent implements OnInit {
       });
     } else {
       this.svc.update(item).subscribe(res => {
-        this.data = this.data.map((v) => {
-          if (v.ID === item.ID) {
-            return Object.assign({}, v, item);
-          }
-          return v;
-        });
-        // this.saveMessage = '修改成功';
+        // this.data = this.data.map((v) => {
+        //   if (v.ID === item.ID) {
+        //     return Object.assign({}, v, item);
+        //   }
+        //   return v;
+        // });
         this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
       }, err => {
@@ -71,10 +73,9 @@ export class DeliveryTypeComponent implements OnInit {
 
   doDelete(item: DeliveryType) {
     this.svc.delete(item).subscribe(res => {
-      this.data = this.data.filter((v) => {
-        return v.ID !== item.ID;
-      });
-      // this.saveMessage = '刪除成功';
+      // this.data = this.data.filter((v) => {
+      //   return v.ID !== item.ID;
+      // });
       this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
     }, err => {
@@ -87,14 +88,12 @@ export class DeliveryTypeComponent implements OnInit {
     this.selected = null;
     this.isCreate = false;
 
-    // this.sort();
-    // setTimeout(() => {
-    //   this.saveMessage = '';
-    // }, 3000);
+    this.reload();
+    this.sort();
   }
 
   showMsg(bm: BooleanMessage) {
-    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 
   sort() {

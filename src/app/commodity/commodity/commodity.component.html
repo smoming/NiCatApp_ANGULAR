@@ -12,11 +12,6 @@
       <app-commodity-list [datalist]="data" (selectEvent)="doSelect($event)"></app-commodity-list>
     </div>
     <div class="col-md-6">
-      <div class="row" *ngIf="saveMessage !== ''">
-        <div class="alert alert-info">
-          <strong>{{ saveMessage }}</strong>
-        </div>
-      </div>
       <div class="row">
         <app-commodity-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-commodity-edit>
       </div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Nation } from '../nation';
 import { NationService } from '../nation.service';
+import { BooleanMessage } from '../../shared-material/boolean-message';
+import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-nation',
@@ -9,15 +12,18 @@ import { NationService } from '../nation.service';
 })
 export class NationComponent implements OnInit {
 
-  constructor(public svc: NationService) {
+  constructor(private svc: NationService, private sanckbar: MatSnackBar) {
   }
 
   data: Nation[];
   selected: Nation;
   isCreate = false;
-  saveMessage = '';
 
   ngOnInit() {
+    this.reload();
+  }
+
+  reload() {
     this.svc.look().subscribe(res => {
       this.data = res;
       this.sort();
@@ -37,42 +43,56 @@ export class NationComponent implements OnInit {
   doUpdate(item: Nation) {
     if (this.isCreate) {
       this.svc.add(item).subscribe(res => {
-        this.data.push(item);
-        this.saveMessage = '新增成功';
+        // this.data.push(item);
+        // this.data = this.data.map((v) => {
+        //   return v;
+        // });
+        this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        BooleanMessage.CreateFail(err);
+        console.log(err);
+      });
     } else {
       this.svc.update(item).subscribe(res => {
-        this.data = this.data.map((v) => {
-          if (v.ID === item.ID) {
-            return Object.assign({}, v, item);
-          }
-          return v;
-        });
-        this.saveMessage = '修改成功';
+        // this.data = this.data.map((v) => {
+        //   if (v.ID === item.ID) {
+        //     return Object.assign({}, v, item);
+        //   }
+        //   return v;
+        // });
+        this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        BooleanMessage.CreateFail(err);
+        console.log(err);
+      });
     }
   }
 
   doDelete(item: Nation) {
     this.svc.delete(item).subscribe(res => {
-      this.data = this.data.filter((v) => {
-        return v.ID !== item.ID;
-      });
-      this.saveMessage = '刪除成功';
+      // this.data = this.data.filter((v) => {
+      //   return v.ID !== item.ID;
+      // });
+      this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
-    }, err => console.log(err));
+    }, err => {
+      BooleanMessage.CreateFail(err);
+      console.log(err);
+    });
   }
 
   saved() {
     this.selected = null;
     this.isCreate = false;
 
+    this.reload();
     this.sort();
-    setTimeout(() => {
-      this.saveMessage = '';
-    }, 3000);
+  }
+
+  showMsg(bm: BooleanMessage) {
+    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 
   sort() {
