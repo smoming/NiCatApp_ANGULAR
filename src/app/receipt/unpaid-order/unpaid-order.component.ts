@@ -24,7 +24,7 @@ export class UnpaidOrderComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.datalist);
+    // console.log(this.datalist);
   }
 
   doPay() {

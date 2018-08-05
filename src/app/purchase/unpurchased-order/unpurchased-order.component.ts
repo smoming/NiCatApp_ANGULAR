@@ -24,7 +24,7 @@ export class UnpurchasedOrderComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.datalist);
+    // console.log(this.datalist);
   }
 
   doPay() {

@@ -63,7 +63,7 @@ export class ReceiptComponent implements OnInit {
         v.TradeDate = Extension.toDate(v.TradeDate);
         return v;
       });
-      console.log(this.unPaid);
+      // console.log(this.unPaid);
       if (this.unPaid == null || (this.unPaid != null && this.unPaid.length <= 0)) {
         this.showMsg(BooleanMessage.CreateFail('查無未付款下單'));
       }
