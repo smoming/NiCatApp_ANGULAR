@@ -45,7 +45,8 @@
           <input type="date" class="form-control form-control-sm" name="ExecuteDate" id="ExecuteDate" aria-describedby="helpId" [(ngModel)]="executeDate">
         </div> -->
         <mat-form-field class="col-md-2">
-          <input matInput type="text" [matDatepicker]="matExecuteDate" placeholder="執行日期" name="ExecuteDate" id="ExecuteDate" [(ngModel)]="executeDate" disabled>
+          <input matInput type="text" [matDatepicker]="matExecuteDate" placeholder="執行日期" name="ExecuteDate" id="ExecuteDate" [(ngModel)]="executeDate"
+            disabled>
           <mat-datepicker-toggle [for]="matExecuteDate" matSuffix></mat-datepicker-toggle>
           <mat-datepicker #matExecuteDate disabled="false"></mat-datepicker>
         </mat-form-field>
@@ -61,6 +62,3 @@
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<div *ngIf="saveMessage !== ''" class="alert alert-info">
-  <strong>{{ saveMessage }}</strong>
-</div>
