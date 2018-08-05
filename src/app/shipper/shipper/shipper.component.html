@@ -33,11 +33,6 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="row" *ngIf="saveMessage !== ''">
-        <div class="alert alert-info">
-          <strong>{{ saveMessage }}</strong>
-        </div>
-      </div>
       <div class="row" *ngIf="!isCreate">
         <app-shipper-edit [item]="selected" [isCreate]="isCreate" (updateEvent)="doUpdate($event)" (deleteEvent)="doDelete($event)"></app-shipper-edit>
       </div>

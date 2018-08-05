@@ -6,6 +6,9 @@ import { TradingQuery } from '../trading-query';
 import { Extension } from '../../extension';
 
 import * as datefns from 'date-fns';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { BooleanMessage } from '../../shared-material/boolean-message';
+import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
 
 @Component({
   selector: 'app-trading',
@@ -14,13 +17,13 @@ import * as datefns from 'date-fns';
 })
 export class TradingComponent implements OnInit {
 
-  constructor(private svc: TradingService) {
+  constructor(private svc: TradingService,
+    private snackbar: MatSnackBar) {
   }
 
   data: Trading[];
   selected: Trading;
   isCreate = false;
-  saveMessage = '';
   _query: TradingQuery;
 
   ngOnInit() {
@@ -58,9 +61,12 @@ export class TradingComponent implements OnInit {
     if (this.isCreate) {
       this.svc.add(item).subscribe(res => {
         // this.data.push(item);
-        this.saveMessage = '新增成功';
+        this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     } else {
       this.svc.update(item).subscribe(res => {
         // this.data = this.data.map((v) => {
@@ -69,9 +75,12 @@ export class TradingComponent implements OnInit {
         //   }
         //   return v;
         // });
-        this.saveMessage = '修改成功';
+        this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     }
   }
 
@@ -80,9 +89,12 @@ export class TradingComponent implements OnInit {
       // this.data = this.data.filter((v) => {
       //   return v.TransNo !== item.TransNo;
       // });
-      this.saveMessage = '刪除成功';
+      this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
-    }, err => console.log(err));
+    }, err => {
+      this.showMsg(BooleanMessage.CreateFail(err));
+      console.log(err);
+    });
   }
 
   saved() {
@@ -91,11 +103,11 @@ export class TradingComponent implements OnInit {
 
     this.reload();
     this.sort();
-    setTimeout(() => {
-      this.saveMessage = '';
-    }, 3000);
   }
 
+  showMsg(bm: BooleanMessage) {
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+  }
   sort() {
     this.data.sort((a, b) => {
       return a.TransNo > b.TransNo ? 1 : -1;
