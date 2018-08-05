@@ -13,7 +13,7 @@ import { BooleanMessage } from '../../shared-material/boolean-message';
 })
 export class DeliveryTypeComponent implements OnInit {
 
-  constructor(private svc: DeliveryTypeService, private sanckbar: MatSnackBar) {
+  constructor(private svc: DeliveryTypeService, private snackbar: MatSnackBar) {
   }
 
   data: DeliveryType[];
@@ -93,7 +93,7 @@ export class DeliveryTypeComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 
   sort() {

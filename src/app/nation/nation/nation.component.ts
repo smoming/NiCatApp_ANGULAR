@@ -12,7 +12,7 @@ import { MatSnackBar } from '../../../../node_modules/@angular/material';
 })
 export class NationComponent implements OnInit {
 
-  constructor(private svc: NationService, private sanckbar: MatSnackBar) {
+  constructor(private svc: NationService, private snackbar: MatSnackBar) {
   }
 
   data: Nation[];
@@ -92,7 +92,7 @@ export class NationComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 
   sort() {

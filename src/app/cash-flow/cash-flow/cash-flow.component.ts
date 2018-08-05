@@ -16,7 +16,7 @@ export class CashFlowComponent implements OnInit {
   executeDate: string;
 
   constructor(private svc: CashFlowService,
-    private sanckbar: MatSnackBar) {
+    private snackbar: MatSnackBar) {
     this.executeDate = Extension.toDateStr(new Date());
   }
 
@@ -42,6 +42,6 @@ export class CashFlowComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 }

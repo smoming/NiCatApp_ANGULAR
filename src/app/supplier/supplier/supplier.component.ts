@@ -12,7 +12,7 @@ import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/
 })
 export class SupplierComponent implements OnInit {
 
-  constructor(private svc: SupplierService, private sanckbar: MatSnackBar) {
+  constructor(private svc: SupplierService, private snackbar: MatSnackBar) {
   }
 
   data: Supplier[];
@@ -93,7 +93,7 @@ export class SupplierComponent implements OnInit {
   }
 
   showMsg(bm: BooleanMessage) {
-    this.sanckbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
   }
 
   sort() {
