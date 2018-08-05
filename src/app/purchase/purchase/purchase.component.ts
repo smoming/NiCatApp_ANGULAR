@@ -8,6 +8,9 @@ import { Order } from '../../order/order';
 import { OrderService } from '../../order/order.service';
 
 import * as datefns from 'date-fns';
+import { BooleanMessage } from '../../shared-material/boolean-message';
+import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-purchase',
@@ -16,14 +19,14 @@ import * as datefns from 'date-fns';
 })
 export class PurchaseComponent implements OnInit {
 
-  constructor(private svc: PurchaseService, private svc_order: OrderService) {
+  constructor(private svc: PurchaseService, private svc_order: OrderService,
+    private snackbar: MatSnackBar) {
   }
 
   data: Purchase[];
   unpurchased: Order[];
   selected: Purchase;
   isCreate = false;
-  saveMessage = '';
   _query: PurchaseQuery;
 
   ngOnInit() {
@@ -61,6 +64,9 @@ export class PurchaseComponent implements OnInit {
         return v;
       });
       // console.log(this.unPaid);
+      if (this.unpurchased == null || (this.unpurchased != null && this.unpurchased.length <= 0)) {
+        this.showMsg(BooleanMessage.CreateFail('查無未付款進貨下單'));
+      }
     });
   }
 
@@ -68,11 +74,14 @@ export class PurchaseComponent implements OnInit {
     if (transNos.length > 0) {
       this.svc.add(transNos).subscribe(res => {
         // this.data.push(item);
-        this.saveMessage = '新增成功';
+        this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.doCancelPay();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     } else {
-      this.saveMessage = '請選擇欲付款之下單交易';
+      this.showMsg(BooleanMessage.CreateFail('請選擇欲付款之下單交易'));
     }
     this.saved();
   }
@@ -84,17 +93,23 @@ export class PurchaseComponent implements OnInit {
   doUpdate(item: Purchase) {
     if (!this.isCreate) {
       this.svc.update(item).subscribe(res => {
-        this.saveMessage = '修改成功';
+        this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     }
   }
 
   doDelete(item: Purchase) {
     this.svc.delete(item).subscribe(res => {
-      this.saveMessage = '刪除成功';
+      this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
-    }, err => console.log(err));
+    }, err => {
+      this.showMsg(BooleanMessage.CreateFail(err));
+      console.log(err);
+    });
   }
 
   saved() {
@@ -102,13 +117,13 @@ export class PurchaseComponent implements OnInit {
       this.reload();
     }
     this.sort();
-    setTimeout(() => {
-      this.saveMessage = '';
-    }, 3000);
     this.selected = null;
     this.isCreate = false;
   }
 
+  showMsg(bm: BooleanMessage) {
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+  }
   sort() {
     if (this.data) {
       this.data.sort((a, b) => {

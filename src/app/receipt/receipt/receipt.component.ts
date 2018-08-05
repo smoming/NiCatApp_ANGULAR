@@ -9,6 +9,9 @@ import * as datefns from 'date-fns';
 import { Order } from '../../order/order';
 import { OrderService } from '../../order/order.service';
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { BooleanMessage } from '../../shared-material/boolean-message';
+import { SharedSanckBarComponent } from '../../shared-material/shared-sanck-bar/shared-sanck-bar.component';
 
 @Component({
   selector: 'app-receipt',
@@ -17,14 +20,14 @@ import { Subscription } from 'rxjs';
 })
 export class ReceiptComponent implements OnInit {
 
-  constructor(private svc: ReceiptService, private svc_order: OrderService) {
+  constructor(private svc: ReceiptService, private svc_order: OrderService,
+    private snackbar: MatSnackBar) {
   }
 
   data: Receipt[];
   unPaid: Order[];
   selected: Receipt;
   isCreate = false;
-  saveMessage = '';
   _query: ReceiptQuery;
 
   ngOnInit() {
@@ -60,7 +63,10 @@ export class ReceiptComponent implements OnInit {
         v.TradeDate = Extension.toDate(v.TradeDate);
         return v;
       });
-      // console.log(this.unPaid);
+      console.log(this.unPaid);
+      if (this.unPaid == null || (this.unPaid != null && this.unPaid.length <= 0)) {
+        this.showMsg(BooleanMessage.CreateFail('查無未付款下單'));
+      }
     });
   }
 
@@ -68,11 +74,14 @@ export class ReceiptComponent implements OnInit {
     if (transNos.length > 0) {
       this.svc.add(transNos).subscribe(res => {
         // this.data.push(item);
-        this.saveMessage = '新增成功';
+        this.showMsg(BooleanMessage.CreateSuccess('新增成功'));
         this.doCancelPay();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     } else {
-      this.saveMessage = '請選擇欲付款之下單交易';
+      this.showMsg(BooleanMessage.CreateFail('請選擇欲付款之下單交易'));
     }
     this.saved();
   }
@@ -84,17 +93,23 @@ export class ReceiptComponent implements OnInit {
   doUpdate(item: Receipt) {
     if (!this.isCreate) {
       this.svc.update(item).subscribe(res => {
-        this.saveMessage = '修改成功';
+        this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
-      }, err => console.log(err));
+      }, err => {
+        this.showMsg(BooleanMessage.CreateFail(err));
+        console.log(err);
+      });
     }
   }
 
   doDelete(item: Receipt) {
     this.svc.delete(item).subscribe(res => {
-      this.saveMessage = '刪除成功';
+      this.showMsg(BooleanMessage.CreateSuccess('刪除成功'));
       this.saved();
-    }, err => console.log(err));
+    }, err => {
+      this.showMsg(BooleanMessage.CreateFail(err));
+      console.log(err);
+    });
   }
 
   saved() {
@@ -102,13 +117,13 @@ export class ReceiptComponent implements OnInit {
       this.reload();
     }
     this.sort();
-    setTimeout(() => {
-      this.saveMessage = '';
-    }, 3000);
     this.selected = null;
     this.isCreate = false;
   }
 
+  showMsg(bm: BooleanMessage) {
+    this.snackbar.openFromComponent(SharedSanckBarComponent, { data: bm });
+  }
   sort() {
     if (this.data) {
       this.data.sort((a, b) => {
