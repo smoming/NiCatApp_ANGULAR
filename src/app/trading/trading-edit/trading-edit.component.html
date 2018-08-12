@@ -13,7 +13,8 @@
         <input matInput type="text" placeholder="下單編號" id="transNo" name="transNo" [(ngModel)]="item.TransNo" disabled>
       </mat-form-field>
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="text" [matDatepicker]="matTradeDate" placeholder="下單日期" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate" required disabled>
+        <input matInput type="text" [matDatepicker]="matTradeDate" placeholder="下單日期" id="tradeDate" name="tradeDate" [(ngModel)]="item.TradeDate"
+          required disabled>
         <mat-datepicker-toggle [for]="matTradeDate" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #matTradeDate disabled="false"></mat-datepicker>
       </mat-form-field>
@@ -77,10 +78,10 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
-        <button type="button" mat-raised-button color="primary" (click)="update()">
+        <button type="button" mat-raised-button color="primary" (click)="update()" *ngIf="editable">
           <mat-icon>save</mat-icon>儲存
         </button>
-        <button type="button" mat-raised-button color="primary" *ngIf="!isCreate" (click)="delete()">
+        <button type="button" mat-raised-button color="primary" *ngIf="!isCreate && editable" (click)="delete()">
           <mat-icon>delete</mat-icon>刪除
         </button>
         <button type="button" mat-raised-button color="primary" (click)="cancel()">
