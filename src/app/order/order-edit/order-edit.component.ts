@@ -39,7 +39,7 @@ export class OrderEditComponent implements OnInit, OnChanges {
     this.editable = false;
     if (this.item) {
       this.item.TradeDate = Extension.toDate(this.item.TradeDate);
-      this.editable = (this.item.ReceiptNo === '' && this.item.PurchaseNo === '');
+      this.editable = (Extension.isNullOrEmpty(this.item.ReceiptNo) && Extension.isNullOrEmpty(this.item.PurchaseNo));
     }
   }
 

@@ -8,4 +8,11 @@ export class Extension {
   static toDateStr(date: Date) {
     return datefns.format(date, 'YYYY-MM-DD');
   }
+
+  static isNullOrEmpty(str: string) {
+    if (str === '' || str === null) {
+      return true;
+    }
+    return false;
+  }
 }

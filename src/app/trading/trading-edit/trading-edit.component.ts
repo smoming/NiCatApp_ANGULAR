@@ -39,7 +39,7 @@ export class TradingEditComponent implements OnInit, OnChanges {
     this.editable = false;
     if (this.item) {
       this.item.TradeDate = Extension.toDate(this.item.TradeDate);
-      this.editable = (this.item.ShipperNo === '');
+      this.editable = Extension.isNullOrEmpty(this.item.ShipperNo);
     }
   }
 

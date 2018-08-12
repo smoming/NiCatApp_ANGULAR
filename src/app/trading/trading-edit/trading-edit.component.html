@@ -78,7 +78,7 @@
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
-        <button type="button" mat-raised-button color="primary" (click)="update()" *ngIf="editable">
+        <button type="button" mat-raised-button color="primary" (click)="update()" *ngIf="isCreate || editable">
           <mat-icon>save</mat-icon>儲存
         </button>
         <button type="button" mat-raised-button color="primary" *ngIf="!isCreate && editable" (click)="delete()">
