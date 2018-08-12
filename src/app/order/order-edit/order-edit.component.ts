@@ -21,6 +21,7 @@ export class OrderEditComponent implements OnInit, OnChanges {
   @Input()
   isCreate;
 
+  editable = false;
   commoditylist: Commodity[];
 
   constructor(private commodity_svc: CommodityService) {
@@ -35,8 +36,10 @@ export class OrderEditComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    this.editable = false;
     if (this.item) {
       this.item.TradeDate = Extension.toDate(this.item.TradeDate);
+      this.editable = (this.item.ReceiptNo === '' && this.item.PurchaseNo === '');
     }
   }
 
