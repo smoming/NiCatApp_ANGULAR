@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '../../node_modules/@angular/material';
+import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '../../node_modules/@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -74,6 +74,10 @@ const FORMATS_TW = {
     {
       provide: MAT_DATE_FORMATS,
       useValue: FORMATS_TW
+    },
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: { duration: 5000 }
     }
   ],
   entryComponents: [SharedSnackBarComponent],

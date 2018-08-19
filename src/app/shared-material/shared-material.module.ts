@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatIconModule, MatExpansionModule,
   MatSidenavModule, MatListModule, MatToolbarModule, MatInputModule, MatFormFieldModule, MatSelectModule,
-  MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSnackBarModule, MatGridListModule
+  MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSnackBarModule, MatGridListModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { SharedSnackBarComponent } from './shared-snack-bar/shared-snack-bar.component';
@@ -19,6 +20,7 @@ import { SharedSnackBarComponent } from './shared-snack-bar/shared-snack-bar.com
     MatSidenavModule, MatListModule, MatToolbarModule,
     MatInputModule, MatFormFieldModule, MatSelectModule,
     MatMomentDateModule, MatDatepickerModule,
-    MatTableModule, MatPaginatorModule, MatSnackBarModule]
+    MatTableModule, MatPaginatorModule, MatSnackBarModule,
+    MatCheckboxModule]
 })
 export class SharedMaterialModule { }

@@ -1,4 +1,4 @@
-<div *ngIf="datalist?.length > 0">
+<!-- <div *ngIf="datalist?.length > 0">
   <div style="height:auto; max-height: 700px; overflow:auto;" class="row">
     <ul class="list-group">
       <li class="list-group-item list-group-item-action" style="cursor: pointer;" *ngFor="let item of datalist">
@@ -20,4 +20,56 @@
       <mat-icon>close</mat-icon>取消
     </button>
   </div>
-</div>
+</div> -->
+
+<mat-table [dataSource]="matTableDS">
+  <ng-container matColumnDef="TransNo">
+    <mat-header-cell *matHeaderCellDef>
+      下單編號
+      <br> 數量
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      {{ row.TransNo }}
+      <br> {{ row.TradeQuantity }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="TradeDate">
+    <mat-header-cell *matHeaderCellDef>
+      下單日期
+      <br> 金額
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      {{ row.TradeDate }}
+      <br> {{ row.TradeAmount | currency }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="CommodityID">
+    <mat-header-cell *matHeaderCellDef>商品</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ findname(row.CommodityID) }}</mat-cell>
+  </ng-container>
+  <!-- <ng-container matColumnDef="TradeQuantity">
+      <mat-header-cell *matHeaderCellDef>數量</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.TradeQuantity }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="TradeAmount">
+      <mat-header-cell *matHeaderCellDef>金額</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.TradeAmount }}</mat-cell>
+    </ng-container> -->
+  <ng-container matColumnDef="Selected">
+    <mat-header-cell *matHeaderCellDef>選取</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (change)="docheck($event, row)"></mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['TransNo','TradeDate','CommodityID','Selected']"></mat-header-row>
+  <mat-row *matRowDef="let emailRow; columns: ['TransNo','TradeDate','CommodityID','Selected']"></mat-row>
+</mat-table>
+<button *ngIf="matTableDS.data?.length > 0" mat-raised-button color="primary" type="button" class="btn btn-outline-primary"
+  (click)="doPay()">
+  <mat-icon>save</mat-icon>儲存
+</button>
+<button *ngIf="matTableDS.data?.length > 0" mat-raised-button color="primary" type="button" class="btn btn-outline-danger"
+  (click)="cancel()">
+  <mat-icon>close</mat-icon>取消
+</button>
