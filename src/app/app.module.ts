@@ -5,15 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '../../node_modules/@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
+import { Interceptor } from './interceptor';
 import { AppComponent } from './app.component';
+
 import { DeliveryTypeModule } from './delivery-type/delivery-type.module';
 import { NationModule } from './nation/nation.module';
 import { SupplierModule } from './supplier/supplier.module';
 import { CommodityModule } from './commodity/commodity.module';
 import { OrderModule } from './order/order.module';
-
-import { RequestInterceptor } from './request-interceptor';
-import { ResponseInterceptor } from './response-interceptor';
 import { TradingModule } from './trading/trading.module';
 import { ReceiptModule } from './receipt/receipt.module';
 import { PurchaseModule } from './purchase/purchase.module';
@@ -60,13 +59,7 @@ const FORMATS_TW = {
     {
       // request
       provide: HTTP_INTERCEPTORS,
-      useClass: RequestInterceptor,
-      multi: true
-    },
-    {
-      // response
-      provide: HTTP_INTERCEPTORS,
-      useClass: ResponseInterceptor,
+      useClass: Interceptor,
       multi: true
     },
     {
