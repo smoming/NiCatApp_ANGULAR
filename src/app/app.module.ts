@@ -21,6 +21,7 @@ import { ShipperModule } from './shipper/shipper.module';
 import { CashFlowModule } from './cash-flow/cash-flow.module';
 import { SharedMaterialModule } from './shared-material/shared-material.module';
 import { SharedSnackBarComponent } from './shared-material/shared-snack-bar/shared-snack-bar.component';
+import { HomeComponent } from './home/home.component';
 
 const FORMATS_TW = {
   parse: {
@@ -36,7 +37,8 @@ const FORMATS_TW = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
