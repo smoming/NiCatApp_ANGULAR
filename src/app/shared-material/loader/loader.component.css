@@ -5,7 +5,8 @@
   /* Stay in place */
   z-index: 100;
   /* Sit on top */
-  padding-top: 15%;
+  /* padding-top: 15%; */
+  padding-top: 3.35%;
   /* Location of the box */
   left: 0;
   top: 0;
@@ -19,16 +20,24 @@
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
+  background-color: transparent;
+  /* 透明背景 */
 }
 
 /* Modal Content */
 
 .modal-content {
-  background-color: #fefefe;
+  /* background-color: #fefefe; */
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 15%;
+  /* padding: 20px; */
+  /* border: 1px solid #888; */
+  /* width: 15%; */
+  background-color: #f9edbe;
+  border: 1px solid #f0c36d;
+  padding: 6px 10px;
+  width: fit-content;
+  height: 40px;
+  font-weight: bold;
 }
 
 /* The Close Button */
