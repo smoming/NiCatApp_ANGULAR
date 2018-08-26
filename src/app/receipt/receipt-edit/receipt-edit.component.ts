@@ -2,6 +2,9 @@ import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angu
 
 import { Receipt } from '../receipt';
 import { Extension } from '../../extension';
+import { OrderService } from '../../order/order.service';
+import { OrderQuery } from '../../order/order-query';
+import { Order } from '../../order/order';
 
 @Component({
   selector: 'app-receipt-edit',
@@ -17,7 +20,9 @@ export class ReceiptEditComponent implements OnInit, OnChanges {
   @Input()
   item: Receipt;
 
-  constructor() {
+  deleteable = false;
+
+  constructor(private orserSvc: OrderService) {
   }
 
   ngOnInit() {
@@ -27,6 +32,15 @@ export class ReceiptEditComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.item) {
       this.item.TradeDate = Extension.toDate(this.item.TradeDate);
+      this.orserSvc.look({
+        StartDate: '',
+        EndDate: '',
+        CommodityID: '',
+        ReceiptNo: this.item.TransNo
+      }).subscribe(res => {
+        this.deleteable = ((<Order[]>res).filter(v =>
+          Extension.isNullOrEmpty(v.PurchaseNo) === false).length > 0);
+      });
     }
   }
 

@@ -31,7 +31,8 @@ export class OrderComponent implements OnInit {
     this._query = {
       StartDate: Extension.toDateStr(datefns.addDays(today, -7)),
       EndDate: Extension.toDateStr(today),
-      CommodityID: ''
+      CommodityID: '',
+      ReceiptNo: ''
     };
   }
 

@@ -16,7 +16,8 @@ export class OrderService {
     const params = new HttpParams()
       .set('StartDate', q.StartDate)
       .set('EndDate', q.EndDate)
-      .set('CommodityID', q.CommodityID);
+      .set('CommodityID', q.CommodityID)
+      .set('ReceiptNo', q.ReceiptNo);
     return this.http.get<Order[]>('ApiOrders', { params });
   }
 

@@ -7,6 +7,7 @@ import { OrderQuery } from '../order-query';
 import { Extension } from '../../extension';
 
 import * as datefns from 'date-fns';
+import { Receipt } from '../../receipt/receipt';
 
 @Component({
   selector: 'app-order-query',
@@ -23,7 +24,12 @@ export class OrderQueryComponent implements OnInit {
 
   constructor(private commodity_svc: CommodityService) {
     const today = new Date();
-    this.item = { StartDate: Extension.toDateStr(datefns.addDays(today, -7)), EndDate: Extension.toDateStr(today), CommodityID: '' };
+    this.item = {
+      StartDate: Extension.toDateStr(datefns.addDays(today, -7)),
+      EndDate: Extension.toDateStr(today),
+      CommodityID: '',
+      ReceiptNo: ''
+    };
     this.commodity_svc.look().subscribe(res => {
       res.unshift(new Commodity());
       this.commoditylist = res;
