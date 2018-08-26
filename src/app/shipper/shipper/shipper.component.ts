@@ -26,7 +26,7 @@ export class ShipperComponent implements OnInit {
   data: Shipper[];
   unShipped: Trading[];
   selected: Shipper;
-  isCreate = false;
+  editMode = false;
   _query: ShipperQuery;
   add_buyer = '';
 
@@ -49,7 +49,7 @@ export class ShipperComponent implements OnInit {
 
   doSelect(item: Shipper) {
     this.selected = Object.assign({}, item);
-    this.isCreate = false;
+    this.editMode = true;
   }
 
   doCreate() {
@@ -61,7 +61,7 @@ export class ShipperComponent implements OnInit {
     if (this.add_buyer !== undefined && this.add_buyer !== '') {
       this.svc_trading.GetUnShipped(this.add_buyer).subscribe(res => {
         this.data = null;
-        this.isCreate = true;
+        this.editMode = false;
         this.unShipped = res.map(v => {
           v.TradeDate = Extension.toDate(v.TradeDate);
           return v;
@@ -97,7 +97,7 @@ export class ShipperComponent implements OnInit {
   }
 
   doUpdate(item: Shipper) {
-    if (!this.isCreate) {
+    if (this.editMode) {
       this.svc.update(item).subscribe(res => {
         this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
@@ -119,12 +119,11 @@ export class ShipperComponent implements OnInit {
   }
 
   saved() {
-    if (!this.isCreate) {
+    if (this.editMode) {
       this.reload();
     }
     this.sort();
     this.selected = null;
-    this.isCreate = false;
   }
 
   showMsg(bm: BooleanMessage) {
@@ -142,7 +141,7 @@ export class ShipperComponent implements OnInit {
     this.add_buyer = '';
     this.selected = null;
     this._query = Object.assign({}, query);
-    this.isCreate = false;
+    this.editMode = true;
     this.reload();
   }
 

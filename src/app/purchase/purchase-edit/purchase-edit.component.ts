@@ -15,8 +15,6 @@ export class PurchaseEditComponent implements OnInit, OnChanges {
   deleteEvent = new EventEmitter<Purchase>();
   @Input()
   item: Purchase;
-  @Input()
-  isCreate;
 
   constructor() {
   }

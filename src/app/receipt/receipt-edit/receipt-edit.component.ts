@@ -16,8 +16,6 @@ export class ReceiptEditComponent implements OnInit, OnChanges {
   deleteEvent = new EventEmitter<Receipt>();
   @Input()
   item: Receipt;
-  @Input()
-  isCreate;
 
   constructor() {
   }

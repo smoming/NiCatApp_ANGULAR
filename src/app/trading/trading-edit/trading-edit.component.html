@@ -29,13 +29,13 @@
         <input type="number" class="form-control" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
       </div> -->
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="number" placeholder="數量" id="tradeQuantity" name="tradeQuantity" [(ngModel)]="item.TradeQuantity">
+        <input matInput type="number" placeholder="數量" id="tradeQuantity" name="tradeQuantity" [(ngModel)]="item.TradeQuantity" required>
       </mat-form-field>
       <mat-form-field class="form-group col-md-6">
         <span matPrefix>
           <mat-icon>attach_money</mat-icon>
         </span>
-        <input matInput type="number" placeholder="金額" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
+        <input matInput type="number" placeholder="金額" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount" required>
       </mat-form-field>
     </div>
     <div class="form-row">
@@ -61,10 +61,10 @@
         <input type="text" class="form-control" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer">
       </div> -->
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="text" placeholder="付款編號" id="ShipperNo" name="ShipperNo" [(ngModel)]="item.ShipperNo" disabled>
+        <input matInput type="text" placeholder="出貨編號" id="ShipperNo" name="ShipperNo" [(ngModel)]="item.ShipperNo" disabled>
       </mat-form-field>
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="text" placeholder="買家" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer">
+        <input matInput type="text" placeholder="買家" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer" required>
       </mat-form-field>
     </div>
     <div class="form-row">
@@ -92,5 +92,5 @@
   </form>
 </div>
 <p *ngIf="!item">
-  <strong>請選擇資料...</strong>
+  <app-select-data-info></app-select-data-info>
 </p>

@@ -18,8 +18,6 @@ export class ShipperEditComponent implements OnInit, OnChanges {
   deleteEvent = new EventEmitter<Shipper>();
   @Input()
   item: Shipper;
-  @Input()
-  isCreate;
 
   deliverylist: DeliveryType[];
 

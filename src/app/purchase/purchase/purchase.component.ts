@@ -26,7 +26,7 @@ export class PurchaseComponent implements OnInit {
   data: Purchase[];
   unpurchased: Order[];
   selected: Purchase;
-  isCreate = false;
+  editMode = false;
   _query: PurchaseQuery;
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class PurchaseComponent implements OnInit {
 
   doSelect(item: Purchase) {
     this.selected = Object.assign({}, item);
-    this.isCreate = false;
+    this.editMode = true;
   }
 
   doCreate() {
@@ -58,7 +58,7 @@ export class PurchaseComponent implements OnInit {
     // this.isCreate = true;
     this.svc_order.getUnPurchase().subscribe(res => {
       this.data = null;
-      this.isCreate = true;
+      this.editMode = false;
       this.unpurchased = res.map(v => {
         v.TradeDate = Extension.toDate(v.TradeDate);
         return v;
@@ -91,7 +91,7 @@ export class PurchaseComponent implements OnInit {
   }
 
   doUpdate(item: Purchase) {
-    if (!this.isCreate) {
+    if (this.editMode) {
       this.svc.update(item).subscribe(res => {
         this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
@@ -113,12 +113,11 @@ export class PurchaseComponent implements OnInit {
   }
 
   saved() {
-    if (!this.isCreate) {
+    if (this.editMode) {
       this.reload();
     }
     this.sort();
     this.selected = null;
-    this.isCreate = false;
   }
 
   showMsg(bm: BooleanMessage) {
@@ -135,7 +134,7 @@ export class PurchaseComponent implements OnInit {
   query(query: PurchaseQuery) {
     this.selected = null;
     this._query = Object.assign({}, query);
-    this.isCreate = false;
+    this.editMode = true;
     this.reload();
   }
 

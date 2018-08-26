@@ -27,7 +27,7 @@ export class ReceiptComponent implements OnInit {
   data: Receipt[];
   unPaid: Order[];
   selected: Receipt;
-  isCreate = false;
+  editMode = false;
   _query: ReceiptQuery;
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class ReceiptComponent implements OnInit {
 
   doSelect(item: Receipt) {
     this.selected = Object.assign({}, item);
-    this.isCreate = false;
+    this.editMode = true;
   }
 
   doCreate() {
@@ -58,7 +58,7 @@ export class ReceiptComponent implements OnInit {
     // this.isCreate = true;
     this.svc_order.getUnPaid().subscribe(res => {
       this.data = null;
-      this.isCreate = true;
+      this.editMode = false;
       this.unPaid = res.map(v => {
         v.TradeDate = Extension.toDate(v.TradeDate);
         return v;
@@ -91,7 +91,7 @@ export class ReceiptComponent implements OnInit {
   }
 
   doUpdate(item: Receipt) {
-    if (!this.isCreate) {
+    if (this.editMode) {
       this.svc.update(item).subscribe(res => {
         this.showMsg(BooleanMessage.CreateSuccess('修改成功'));
         this.saved();
@@ -113,12 +113,11 @@ export class ReceiptComponent implements OnInit {
   }
 
   saved() {
-    if (!this.isCreate) {
+    if (this.editMode) {
       this.reload();
     }
     this.sort();
     this.selected = null;
-    this.isCreate = false;
   }
 
   showMsg(bm: BooleanMessage) {
@@ -135,7 +134,7 @@ export class ReceiptComponent implements OnInit {
   query(query: ReceiptQuery) {
     this.selected = null;
     this._query = Object.assign({}, query);
-    this.isCreate = false;
+    this.editMode = true;
     this.reload();
   }
 

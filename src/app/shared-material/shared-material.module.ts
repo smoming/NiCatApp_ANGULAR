@@ -10,6 +10,7 @@ import {
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { SharedSnackBarComponent } from './shared-snack-bar/shared-snack-bar.component';
 import { LoaderComponent } from './loader/loader.component';
+import { SelectDataInfoComponent } from './select-data-info/select-data-info.component';
 
 @NgModule({
   imports: [
@@ -17,12 +18,12 @@ import { LoaderComponent } from './loader/loader.component';
     MatGridListModule,
     MatButtonModule, MatIconModule, MatSnackBarModule, MatProgressBarModule
   ],
-  declarations: [SharedSnackBarComponent, LoaderComponent],
+  declarations: [SharedSnackBarComponent, LoaderComponent, SelectDataInfoComponent],
   exports: [MatButtonModule, MatIconModule, MatExpansionModule,
     MatSidenavModule, MatListModule, MatToolbarModule,
     MatInputModule, MatFormFieldModule, MatSelectModule,
     MatMomentDateModule, MatDatepickerModule,
     MatTableModule, MatPaginatorModule, MatSnackBarModule,
-    MatCheckboxModule, LoaderComponent]
+    MatCheckboxModule, LoaderComponent, SelectDataInfoComponent]
 })
 export class SharedMaterialModule { }

@@ -31,7 +31,7 @@
         </select>
       </div> -->
       <mat-form-field class="form-group col-md-6">
-        <input matInput type="text" placeholder="買家" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer" disabled>
+        <input matInput type="text" placeholder="買家" id="Buyer" name="Buyer" [(ngModel)]="item.Buyer" disabled required>
       </mat-form-field>
       <mat-form-field class="form-group col-md-6">
         <mat-select placeholder="配送" id="Delivery" name="Delivery" [(ngModel)]="item.Delivery" required>
@@ -52,13 +52,13 @@
         <span matPrefix>
           <mat-icon>attach_money</mat-icon>
         </span>
-        <input matInput type="number" placeholder="金額" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount">
+        <input matInput type="number" placeholder="金額" id="tradeAmount" name="tradeAmount" [(ngModel)]="item.TradeAmount" required>
       </mat-form-field>
       <mat-form-field class="form-group col-md-6">
         <span matPrefix>
           <mat-icon>attach_money</mat-icon>
         </span>
-        <input matInput type="number" placeholder="運費" id="Fee" name="Fee" [(ngModel)]="item.Fee">
+        <input matInput type="number" placeholder="運費" id="Fee" name="Fee" [(ngModel)]="item.Fee" required>
       </mat-form-field>
     </div>
     <div class="form-row">
@@ -75,7 +75,7 @@
         <button type="button" mat-raised-button color="primary" (click)="update()">
           <mat-icon>save</mat-icon>儲存
         </button>
-        <button type="button" mat-raised-button color="primary" *ngIf="!isCreate" (click)="delete()">
+        <button type="button" mat-raised-button color="primary" (click)="delete()">
           <mat-icon>delete</mat-icon>刪除
         </button>
         <button type="button" mat-raised-button color="primary" (click)="cancel()">
@@ -86,5 +86,5 @@
   </form>
 </div>
 <p *ngIf="!item">
-  <strong>請選擇資料...</strong>
+  <app-select-data-info></app-select-data-info>
 </p>

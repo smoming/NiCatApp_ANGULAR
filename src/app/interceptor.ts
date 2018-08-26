@@ -34,7 +34,7 @@ export class Interceptor implements HttpInterceptor {
       finalize(() => {
         setTimeout(() => {
           loading.style.display = 'none';
-        }, 1000);
+        }, 500);
       }));
   }
 }
