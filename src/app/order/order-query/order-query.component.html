@@ -65,12 +65,14 @@
             </select>
           </div> -->
           <mat-form-field class="col-md-3">
-            <input matInput type="text" [matDatepicker]="matStartDate" placeholder="下單日期(起)" name="StartDate" id="StartDate" [(ngModel)]="item.StartDate" disabled />
+            <input matInput type="text" [matDatepicker]="matStartDate" placeholder="下單日期(起)" name="StartDate" id="StartDate" [(ngModel)]="item.StartDate"
+              disabled />
             <mat-datepicker-toggle [for]="matStartDate" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #matStartDate disabled="false"></mat-datepicker>
           </mat-form-field>
           <mat-form-field class="col-md-3">
-            <input matInput type="text" [matDatepicker]="matEndDate" placeholder="下單日期(迄)" name="EndDate" id="EndDate" [(ngModel)]="item.EndDate" disabled />
+            <input matInput type="text" [matDatepicker]="matEndDate" placeholder="下單日期(迄)" name="EndDate" id="EndDate" [(ngModel)]="item.EndDate"
+              disabled />
             <mat-datepicker-toggle [for]="matEndDate" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #matEndDate disabled="false"></mat-datepicker>
           </mat-form-field>
@@ -78,6 +80,9 @@
             <mat-select placeholder="商品代碼" id="CommodityID" name="CommodityID" [(ngModel)]="item.CommodityID">
               <mat-option *ngFor="let item of commoditylist" [value]="item.ID">{{item.Name}}</mat-option>
             </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-md-3" hidden>
+            <input matInput type="text" placeholder="付款代碼" name="ReceiptNo" id="ReceiptNo" [(ngModel)]="item.ReceiptNo" />
           </mat-form-field>
         </div>
       </div>

@@ -38,8 +38,9 @@ export class ReceiptEditComponent implements OnInit, OnChanges {
         CommodityID: '',
         ReceiptNo: this.item.TransNo
       }).subscribe(res => {
-        this.deleteable = ((<Order[]>res).filter(v =>
-          Extension.isNullOrEmpty(v.PurchaseNo) === false).length > 0);
+        const orders = (<Order[]>res);
+        this.deleteable = (orders.filter(v =>
+          Extension.isNotNullOrEmpty(v.PurchaseNo)).length <= 0);
       });
     }
   }

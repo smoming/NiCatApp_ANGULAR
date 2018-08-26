@@ -15,4 +15,8 @@ export class Extension {
     }
     return false;
   }
+
+  static isNotNullOrEmpty(str: string) {
+    return this.isNullOrEmpty(str) === false;
+  }
 }
