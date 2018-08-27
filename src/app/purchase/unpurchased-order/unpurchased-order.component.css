@@ -1,1 +1,5 @@
 @import "~src/globalstyle.css";
+.mat-column-Selected {
+  justify-content: center;
+  flex: 0 0 15%;
+}

@@ -1,4 +1,5 @@
 @import "~src/globalstyle.css";
-.TradeQuantity {
-  background-color: burlywood;
+.mat-column-Selected {
+  justify-content: center;
+  flex: 0 0 15%;
 }
