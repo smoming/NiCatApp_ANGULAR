@@ -76,7 +76,8 @@
             <mat-datepicker #matStartDate disabled="false"></mat-datepicker>
           </mat-form-field>
           <mat-form-field class="col-md-3">
-            <input matInput type="text" [matDatepicker]="matEndDate" placeholder="下單日期(迄)" name="EndDate" id="EndDate" [(ngModel)]="item.EndDate" disabled>
+            <input matInput type="text" [matDatepicker]="matEndDate" placeholder="下單日期(迄)" name="EndDate" id="EndDate" [(ngModel)]="item.EndDate"
+              disabled>
             <mat-datepicker-toggle [for]="matEndDate" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #matEndDate disabled="false"></mat-datepicker>
           </mat-form-field>
@@ -84,7 +85,7 @@
             <input matInput type="text" placeholder="買家" name="Buyer" id="Buyer" [(ngModel)]="item.Buyer">
           </mat-form-field>
           <mat-form-field class="col-md-3">
-            <mat-select id="CommodityID" name="CommodityID" [(ngModel)]="item.CommodityID">
+            <mat-select placeholder="商品" id="CommodityID" name="CommodityID" [(ngModel)]="item.CommodityID">
               <mat-option *ngFor="let item of commoditylist" [value]="item.ID">{{item.Name}}</mat-option>
             </mat-select>
           </mat-form-field>
