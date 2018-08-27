@@ -1,3 +1,7 @@
 button {
   margin: 0.3rem;
 }
+
+.mat-action-row {
+  justify-content: start;
+}
