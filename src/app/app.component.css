@@ -1,7 +1,22 @@
 .content {
-  height: 65rem;
+  height: 60rem;
+  overflow: hidden;
+}
+
+.toolbar-row {
+  height: 7%;
 }
 
 .toolbar {
-  margin-bottom: 1rem;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.toolbar-width-nav-close {
+  width: 67%;
+}
+
+.toolbar-width-nav-open {
+  width: 58.8%;
 }

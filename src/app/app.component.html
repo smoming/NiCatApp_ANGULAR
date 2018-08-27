@@ -89,13 +89,22 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="content">
-      <mat-toolbar class="toolbar" color="primary">
-        <button mat-icon-button (click)="sideNav.toggle()">
-          <mat-icon>{{ sideNav.opened ? 'close': 'menu' }}</mat-icon>
-        </button>
-        <span>NiCat App</span>
-      </mat-toolbar>
-      <router-outlet></router-outlet>
+      <div class="row toolbar-row">
+        <div class="col-md-12">
+          <mat-toolbar [ngClass]="{'toolbar': true, 'toolbar-width-nav-close': sideNav.opened == false, 'toolbar-width-nav-open': sideNav.opened }"
+            color="primary">
+            <button mat-icon-button (click)="sideNav.toggle();">
+              <mat-icon>{{ sideNav.opened ? 'close': 'menu' }}</mat-icon>
+            </button>
+            <span>NiCat App</span>
+          </mat-toolbar>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
