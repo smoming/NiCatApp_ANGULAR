@@ -1,5 +1,6 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
 // import 'rxjs/add/operator/do';
 import { tap, catchError, finalize } from 'rxjs/operators';
 
@@ -29,7 +30,7 @@ export class Interceptor implements HttpInterceptor {
       // }
     }),
       catchError(error => {
-        return Observable.throw(error);
+        return observableThrowError(error);
       }),
       finalize(() => {
         setTimeout(() => {
