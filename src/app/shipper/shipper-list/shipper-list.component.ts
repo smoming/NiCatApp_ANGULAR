@@ -10,7 +10,7 @@ import { DeliveryTypeService } from '../../delivery-type/delivery-type.service';
   styleUrls: ['./shipper-list.component.css']
 })
 export class ShipperListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
   deliverylist: DeliveryType[];

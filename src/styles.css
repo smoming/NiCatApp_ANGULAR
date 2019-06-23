@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+button {
+  margin: 0.3rem;
+}
+
+.mat-action-row {
+  justify-content: flex-start;
+  padding: 0 0 0 0;
+}
+
+.mat-column-Selected {
+  justify-content: center;
+  flex: 0 0 15%;
+}

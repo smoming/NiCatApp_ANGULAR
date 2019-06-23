@@ -8,7 +8,7 @@ import { MatPaginator, MatTableDataSource } from '../../../../node_modules/@angu
   styleUrls: ['./delivery-type-list.component.css']
 })
 export class DeliveryTypeListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
 

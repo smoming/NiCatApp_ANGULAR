@@ -9,7 +9,7 @@ import { MatPaginator, MatTableDataSource } from '../../../../node_modules/@angu
   styleUrls: ['./purchase-list.component.css']
 })
 export class PurchaseListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
 

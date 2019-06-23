@@ -10,7 +10,7 @@ import { Commodity } from '../../commodity/commodity';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
   commodityList: Commodity[];

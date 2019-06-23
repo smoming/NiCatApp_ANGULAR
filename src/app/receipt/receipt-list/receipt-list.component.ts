@@ -8,7 +8,7 @@ import { MatTableDataSource, MatPaginator } from '../../../../node_modules/@angu
   styleUrls: ['./receipt-list.component.css']
 })
 export class ReceiptListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
 
