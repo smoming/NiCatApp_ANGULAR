@@ -16,14 +16,14 @@ export class SupplierService {
   }
 
   add(item: Supplier): Observable<Object> {
-    return this.http.post('ApiSuppliers', item);
+    return this.http.post('ApiSuppliers', item, { responseType: 'text' });
   }
 
   update(item: Supplier): Observable<Object> {
-    return this.http.put('ApiSuppliers/' + item.ID, item);
+    return this.http.put('ApiSuppliers/' + item.ID, item, { responseType: 'text' });
   }
 
   delete(item: Supplier): Observable<Object> {
-    return this.http.delete('ApiSuppliers/' + item.ID);
+    return this.http.delete('ApiSuppliers/' + item.ID, { responseType: 'text' });
   }
 }

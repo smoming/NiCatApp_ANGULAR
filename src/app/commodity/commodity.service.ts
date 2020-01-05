@@ -15,14 +15,14 @@ export class CommodityService {
   }
 
   add(item: Commodity): Observable<Object> {
-    return this.http.post('ApiCommodities', item);
+    return this.http.post('ApiCommodities', item, { responseType: 'text' });
   }
 
   update(item: Commodity): Observable<Object> {
-    return this.http.put('ApiCommodities/' + item.ID, item);
+    return this.http.put('ApiCommodities/' + item.ID, item, { responseType: 'text' });
   }
 
   delete(item: Commodity): Observable<Object> {
-    return this.http.delete('ApiCommodities/' + item.ID);
+    return this.http.delete('ApiCommodities/' + item.ID, { responseType: 'text' });
   }
 }

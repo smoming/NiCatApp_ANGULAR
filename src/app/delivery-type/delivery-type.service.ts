@@ -16,14 +16,14 @@ export class DeliveryTypeService {
   }
 
   add(item: DeliveryType): Observable<Object> {
-    return this.http.post('ApiDeliveryTypes', item);
+    return this.http.post('ApiDeliveryTypes', item, { responseType: 'text' });
   }
 
   update(item: DeliveryType): Observable<Object> {
-    return this.http.put('ApiDeliveryTypes/' + item.ID, item);
+    return this.http.put('ApiDeliveryTypes/' + item.ID, item, { responseType: 'text' });
   }
 
   delete(item: DeliveryType): Observable<Object> {
-    return this.http.delete('ApiDeliveryTypes/' + item.ID);
+    return this.http.delete('ApiDeliveryTypes/' + item.ID, { responseType: 'text' });
   }
 }

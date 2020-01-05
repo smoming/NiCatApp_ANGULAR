@@ -9,8 +9,8 @@ export class Interceptor implements HttpInterceptor {
     // console.log('=====old=====');
     // console.log(req);
 
-    // const BaseUrl = 'http://localhost:5542/api/';
-    const BaseUrl = 'http://114.33.3.174/api/';
+    const BaseUrl = 'http://localhost:8080/api/';
+    // const BaseUrl = 'http://114.33.3.174/api/';
     const copied = req.clone({
       // setHeaders: { Authorization: 'Token Token_admin_id'},
       // params: req.params.set('auth', 'Token'),

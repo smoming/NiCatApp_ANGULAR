@@ -16,14 +16,14 @@ export class NationService {
   }
 
   add(item: Nation): Observable<Object> {
-    return this.http.post('ApiNation', item);
+    return this.http.post('ApiNation', item, { responseType: 'text' });
   }
 
   update(item: Nation): Observable<Object> {
-    return this.http.put('ApiNation/' + item.ID, item);
+    return this.http.put('ApiNation/' + item.ID, item, { responseType: 'text' });
   }
 
   delete(item: Nation): Observable<Object> {
-    return this.http.delete('ApiNation/' + item.ID);
+    return this.http.delete('ApiNation/' + item.ID, { responseType: 'text' });
   }
 }
