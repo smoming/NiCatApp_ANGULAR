@@ -1,2 +1,2 @@
 # NiCatApp_ANGULAR
-Angular
+NiCatApp Frontend Angular Version
