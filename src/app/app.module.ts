@@ -72,7 +72,7 @@ const FORMATS_TW = {
     },
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
-      useValue: { duration: 5000 }
+      useValue: { duration: 3000 }
     }
   ],
   entryComponents: [SharedSnackBarComponent],
