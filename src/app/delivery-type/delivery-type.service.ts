@@ -12,11 +12,11 @@ export class DeliveryTypeService {
   constructor(private http: HttpClient) { }
 
   look(): Observable<DeliveryType[]> {
-    return this.http.get<DeliveryType[]>('ApiDeliveryTypes');
+    return this.http.get<DeliveryType[]>('ApiDeliveryTypes/');
   }
 
   add(item: DeliveryType): Observable<Object> {
-    return this.http.post('ApiDeliveryTypes', item, { responseType: 'text' });
+    return this.http.post('ApiDeliveryTypes/', item, { responseType: 'text' });
   }
 
   update(item: DeliveryType): Observable<Object> {

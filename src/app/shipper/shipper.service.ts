@@ -21,11 +21,11 @@ export class ShipperService {
       .set('StartDate', Extension.toDateStr(new Date(q.StartDate)))
       .set('EndDate', Extension.toDateStr(new Date(q.EndDate)))
       .set('Buyer', q.Buyer);
-    return this.http.get<Shipper[]>('ApiShippers', { params });
+    return this.http.get<Shipper[]>('ApiShippers/', { params });
   }
 
   add(transnos: string[]): Observable<Object> {
-    return this.http.post('ApiShippers', transnos, { responseType: 'text' });
+    return this.http.post('ApiShippers/', transnos, { responseType: 'text' });
   }
 
   update(item: Shipper): Observable<Object> {

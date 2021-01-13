@@ -12,11 +12,11 @@ export class SupplierService {
   constructor(private http: HttpClient) { }
 
   look(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('ApiSuppliers');
+    return this.http.get<Supplier[]>('ApiSuppliers/');
   }
 
   add(item: Supplier): Observable<Object> {
-    return this.http.post('ApiSuppliers', item, { responseType: 'text' });
+    return this.http.post('ApiSuppliers/', item, { responseType: 'text' });
   }
 
   update(item: Supplier): Observable<Object> {

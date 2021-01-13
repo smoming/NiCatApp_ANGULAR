@@ -11,12 +11,12 @@ export class CashFlowService {
   constructor(private http: HttpClient) { }
 
   account(exeDate: string): Observable<Object> {
-    return this.http.post('ApiCashFlow/DoAccound?xExeDate=' +
+    return this.http.post('ApiCashFlow/DoAccound/?xExeDate=' +
       Extension.toDateStr(new Date(exeDate)), null, { responseType: 'text' });
   }
 
   unaccount(exeDate: string): Observable<Object> {
-    return this.http.post('ApiCashFlow/DoUnAccound?xExeDate=' +
+    return this.http.post('ApiCashFlow/DoUnAccound/?xExeDate=' +
       Extension.toDateStr(new Date(exeDate)), null, { responseType: 'text' });
   }
 }

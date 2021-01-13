@@ -19,11 +19,11 @@ export class ReceiptService {
       // .set('EndDate', q.EndDate);
       .set('StartDate', Extension.toDateStr(new Date(q.StartDate)))
       .set('EndDate', Extension.toDateStr(new Date(q.EndDate)));
-    return this.http.get<Receipt[]>('ApiReceipt', { params });
+    return this.http.get<Receipt[]>('ApiReceipt/', { params });
   }
 
   add(transnos: string[]): Observable<Object> {
-    return this.http.post('ApiReceipt', transnos, { responseType: 'text' });
+    return this.http.post('ApiReceipt/', transnos, { responseType: 'text' });
   }
 
   update(item: Receipt): Observable<Object> {

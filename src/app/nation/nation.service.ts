@@ -12,11 +12,11 @@ export class NationService {
   constructor(private http: HttpClient) { }
 
   look(): Observable<Nation[]> {
-    return this.http.get<Nation[]>('ApiNation');
+    return this.http.get<Nation[]>('ApiNation/');
   }
 
   add(item: Nation): Observable<Object> {
-    return this.http.post('ApiNation', item, { responseType: 'text' });
+    return this.http.post('ApiNation/', item, { responseType: 'text' });
   }
 
   update(item: Nation): Observable<Object> {

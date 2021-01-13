@@ -21,17 +21,17 @@ export class TradingService {
       .set('EndDate', Extension.toDateStr(new Date(q.EndDate)))
       .set('Buyer', q.Buyer)
       .set('CommodityID', q.CommodityID);
-    return this.http.get<Trading[]>('ApiTradings', { params });
+    return this.http.get<Trading[]>('ApiTradings/', { params });
   }
 
   GetUnShipped(xBuyer: string): Observable<Trading[]> {
     const params = new HttpParams()
       .set('Buyer', xBuyer);
-    return this.http.get<Trading[]>('ApiTradings/GetUnShipped', { params });
+    return this.http.get<Trading[]>('ApiTradings/GetUnShipped/', { params });
   }
 
   add(item: Trading): Observable<Object> {
-    return this.http.post('ApiTradings', item, { responseType: 'text' });
+    return this.http.post('ApiTradings/', item, { responseType: 'text' });
   }
 
   update(item: Trading): Observable<Object> {

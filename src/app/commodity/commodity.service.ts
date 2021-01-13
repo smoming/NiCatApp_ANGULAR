@@ -11,11 +11,11 @@ export class CommodityService {
   constructor(private http: HttpClient) { }
 
   look(): Observable<Commodity[]> {
-    return this.http.get<Commodity[]>('ApiCommodities');
+    return this.http.get<Commodity[]>('ApiCommodities/');
   }
 
   add(item: Commodity): Observable<Object> {
-    return this.http.post('ApiCommodities', item, { responseType: 'text' });
+    return this.http.post('ApiCommodities/', item, { responseType: 'text' });
   }
 
   update(item: Commodity): Observable<Object> {

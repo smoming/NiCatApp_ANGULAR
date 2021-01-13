@@ -19,11 +19,11 @@ export class PurchaseService {
       // .set('EndDate', q.EndDate);
       .set('StartDate', Extension.toDateStr(new Date(q.StartDate)))
       .set('EndDate', Extension.toDateStr(new Date(q.EndDate)));
-    return this.http.get<Purchase[]>('ApiPurchase', { params });
+    return this.http.get<Purchase[]>('ApiPurchase/', { params });
   }
 
   add(transnos: string[]): Observable<Object> {
-    return this.http.post('ApiPurchase', transnos, { responseType: 'text' });
+    return this.http.post('ApiPurchase/', transnos, { responseType: 'text' });
   }
 
   update(item: Purchase): Observable<Object> {

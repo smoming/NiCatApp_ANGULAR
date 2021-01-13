@@ -21,19 +21,19 @@ export class OrderService {
       .set('EndDate', Extension.toDateStr(new Date(q.EndDate)))
       .set('CommodityID', q.CommodityID)
       .set('ReceiptNo', q.ReceiptNo);
-    return this.http.get<Order[]>('ApiOrders', { params });
+    return this.http.get<Order[]>('ApiOrders/', { params });
   }
 
   getUnPaid(): Observable<Order[]> {
-    return this.http.get<Order[]>('ApiOrders/GetUnPaid');
+    return this.http.get<Order[]>('ApiOrders/GetUnPaid/');
   }
 
   getUnPurchase(): Observable<Order[]> {
-    return this.http.get<Order[]>('ApiOrders/GetUnPurchase');
+    return this.http.get<Order[]>('ApiOrders/GetUnPurchase/');
   }
 
   add(item: Order): Observable<Object> {
-    return this.http.post('ApiOrders', item, { responseType: 'text' });
+    return this.http.post('ApiOrders/', item, { responseType: 'text' });
   }
 
   update(item: Order): Observable<Object> {
