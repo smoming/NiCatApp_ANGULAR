@@ -3,14 +3,24 @@ import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 // import 'rxjs/add/operator/do';
 import { tap, catchError, finalize } from 'rxjs/operators';
+import { environment } from './../environments/environment';
 
 export class Interceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // console.log('=====old=====');
     // console.log(req);
 
-    const BaseUrl = 'http://localhost:8080/api/';
+    // python
+    // const BaseUrl = 'http://localhost:8000/api/';
+    // java
+    // const BaseUrl = 'http://localhost:8080/api/';
+    // dotnet
     // const BaseUrl = 'http://114.33.3.174/api/';
+    const BaseUrl = environment.BASE_API_URL;
+    if(BaseUrl === '') {
+      console.log('BaseUrl is empty, options: dotnet, java, python, ex: ng serve -c java -o');
+    }
+
     const copied = req.clone({
       // setHeaders: { Authorization: 'Token Token_admin_id'},
       // params: req.params.set('auth', 'Token'),

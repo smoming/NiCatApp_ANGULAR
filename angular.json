@@ -48,6 +48,24 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "dotnet": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.dotnet.ts"
+              }]
+            },
+            "java": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.java.ts"
+              }]
+            },
+            "python": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.python.ts"
+              }]
             }
           }
         },
@@ -59,6 +77,15 @@
           "configurations": {
             "production": {
               "browserTarget": "NiCatApp:build:production"
+            },
+            "dotnet": {
+              "browserTarget": "NiCatApp:build:dotnet"
+            },
+            "java": {
+              "browserTarget": "NiCatApp:build:java"
+            },
+            "python": {
+              "browserTarget": "NiCatApp:build:python"
             }
           }
         },
