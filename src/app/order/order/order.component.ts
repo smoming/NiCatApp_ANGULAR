@@ -115,7 +115,10 @@ export class OrderComponent implements OnInit {
 
   query(query: OrderQuery) {
     this.selected = null;
-    this._query = Object.assign({}, query);
+    const filter = Object.assign({}, query);
+    filter.CommodityID = Extension.UndefinedToEmpty(filter.CommodityID);
+    filter.ReceiptNo = Extension.UndefinedToEmpty(filter.ReceiptNo);
+    this._query = filter;
     this.reload();
   }
 }

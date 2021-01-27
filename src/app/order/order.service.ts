@@ -24,6 +24,12 @@ export class OrderService {
     return this.http.get<Order[]>('ApiOrders/', { params });
   }
 
+  havingReceipt(xReceiptNo: string): Observable<Order[]> {
+    const params = new HttpParams()
+      .set('ReceiptNo', xReceiptNo);
+    return this.http.get<Order[]>('ApiOrders/HavingReceipt/', { params });
+  }
+
   getUnPaid(): Observable<Order[]> {
     return this.http.get<Order[]>('ApiOrders/GetUnPaid/');
   }

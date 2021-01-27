@@ -31,13 +31,7 @@ export class ReceiptEditComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.item) {
-      this.item.TradeDate = Extension.toDate(this.item.TradeDate);
-      this.orserSvc.look({
-        StartDate: '',
-        EndDate: '',
-        CommodityID: '',
-        ReceiptNo: this.item.TransNo
-      }).subscribe(res => {
+      this.orserSvc.havingReceipt(this.item.TransNo).subscribe(res => {
         const orders = (<Order[]>res);
         this.deleteable = (orders.filter(v =>
           Extension.isNotNullOrEmpty(v.PurchaseNo)).length <= 0);

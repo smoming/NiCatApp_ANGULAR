@@ -19,4 +19,12 @@ export class Extension {
   static isNotNullOrEmpty(str: string) {
     return this.isNullOrEmpty(str) === false;
   }
+
+  static UndefinedToEmpty(str: string) {
+    if (str === undefined) {
+      return '';
+    }
+
+    return str;
+  }
 }
