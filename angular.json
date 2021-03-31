@@ -78,6 +78,12 @@
                 "replace": "src/environments/environment.ts",
                 "with": "src/environments/environment.dotnet_core_docker.ts"
               }]
+            },
+			"java_docker": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.java_docker.ts"
+              }]
             }
           }
         },
@@ -103,7 +109,10 @@
               "browserTarget": "NiCatApp:build:dotnet_core"
             },
             "dotnet_core_docker": {
-              "browserTarget": "NiCatApp:build:dotnet_core"
+              "browserTarget": "NiCatApp:build:dotnet_core_docker"
+            },
+            "java_docker": {
+              "browserTarget": "NiCatApp:build:java_docker"
             }
           }
         },

@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-	"docker": "ng build -c dotnet_core_docker"
+	"dotnet_core_docker": "ng build -c dotnet_core_docker",
+	"java_docker": "ng build -c java_docker"
   },
   "private": true,
   "dependencies": {
