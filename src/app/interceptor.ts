@@ -4,7 +4,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } fr
 // import 'rxjs/add/operator/do';
 import { tap, catchError, finalize } from 'rxjs/operators';
 import { environment } from './../environments/environment';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class Interceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // console.log('=====old=====');
@@ -17,7 +19,7 @@ export class Interceptor implements HttpInterceptor {
     // dotnet
     // const BaseUrl = 'http://114.33.3.174/api/';
     const BaseUrl = environment.BASE_API_URL;
-    if(BaseUrl === '') {
+    if (BaseUrl === '') {
       console.log('BaseUrl is empty, options: dotnet, java, python, ex: ng serve -c java -o');
     }
 

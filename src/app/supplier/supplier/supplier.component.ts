@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Supplier } from '../supplier';
 import { SupplierService } from '../supplier.service';
-import { MatSnackBar } from '../../../../node_modules/@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BooleanMessage } from '../../shared-material/boolean-message';
 import { SharedSnackBarComponent } from '../../shared-material/shared-snack-bar/shared-snack-bar.component';
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnChanges } from '@angular/core';
 import { Order } from '../order';
-import { MatPaginator, MatTableDataSource } from '../../../../node_modules/@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { CommodityService } from '../../commodity/commodity.service';
 import { Commodity } from '../../commodity/commodity';
 
@@ -10,7 +11,7 @@ import { Commodity } from '../../commodity/commodity';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
+  @ViewChild('paginator') paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
   commodityList: Commodity[];

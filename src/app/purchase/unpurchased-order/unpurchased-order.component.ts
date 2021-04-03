@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, OnChanges, Input } from '@angular/core';
 import { Order } from '../../order/order';
 import { Commodity } from '../../commodity/commodity';
-import { MatTableDataSource, MatCheckboxChange } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { CommodityService } from '../../commodity/commodity.service';
 
 @Component({

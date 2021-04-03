@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 import { Trading } from '../../trading/trading';
 import { Commodity } from '../../commodity/commodity';
 import { CommodityService } from '../../commodity/commodity.service';
-import { MatTableDataSource, MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-unshipped-trading',

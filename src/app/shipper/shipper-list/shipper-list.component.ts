@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnChanges } from '@angular/core';
 import { Shipper } from '../shipper';
-import { MatTableDataSource, MatPaginator } from '../../../../node_modules/@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { DeliveryType } from '../../delivery-type/delivery-type';
 import { DeliveryTypeService } from '../../delivery-type/delivery-type.service';
 
@@ -10,7 +11,7 @@ import { DeliveryTypeService } from '../../delivery-type/delivery-type.service';
   styleUrls: ['./shipper-list.component.css']
 })
 export class ShipperListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
+  @ViewChild('paginator') paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
   deliverylist: DeliveryType[];

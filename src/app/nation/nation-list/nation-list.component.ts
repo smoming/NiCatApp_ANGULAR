@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
 import { Nation } from '../nation';
-import { MatTableDataSource, MatPaginator } from '../../../../node_modules/@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-nation-list',
@@ -8,7 +9,7 @@ import { MatTableDataSource, MatPaginator } from '../../../../node_modules/@angu
   styleUrls: ['./nation-list.component.css']
 })
 export class NationListComponent implements OnInit, OnChanges {
-  @ViewChild('paginator', { static: false }) paginator: MatPaginator;
+  @ViewChild('paginator') paginator: MatPaginator;
   totalCount;
   matTableDS = new MatTableDataSource<any>();
 
