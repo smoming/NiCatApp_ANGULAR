@@ -36,47 +36,46 @@ const FORMATS_TW = {
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedMaterialModule,
-    DeliveryTypeModule,
-    NationModule,
-    SupplierModule,
-    CommodityModule,
-    OrderModule,
-    ReceiptModule,
-    PurchaseModule,
-    TradingModule,
-    ShipperModule,
-    CashFlowModule
-  ],
-  providers: [
-    {
-      // request
-      provide: HTTP_INTERCEPTORS,
-      useClass: Interceptor,
-      multi: true
-    },
-    {
-      provide: MAT_DATE_LOCALE,
-      useValue: 'zh-TW'
-    },
-    {
-      provide: MAT_DATE_FORMATS,
-      useValue: FORMATS_TW
-    },
-    {
-      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
-      useValue: { duration: 3000 }
-    }
-  ],
-  entryComponents: [SharedSnackBarComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        SharedMaterialModule,
+        DeliveryTypeModule,
+        NationModule,
+        SupplierModule,
+        CommodityModule,
+        OrderModule,
+        ReceiptModule,
+        PurchaseModule,
+        TradingModule,
+        ShipperModule,
+        CashFlowModule
+    ],
+    providers: [
+        {
+            // request
+            provide: HTTP_INTERCEPTORS,
+            useClass: Interceptor,
+            multi: true
+        },
+        {
+            provide: MAT_DATE_LOCALE,
+            useValue: 'zh-TW'
+        },
+        {
+            provide: MAT_DATE_FORMATS,
+            useValue: FORMATS_TW
+        },
+        {
+            provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+            useValue: { duration: 3000 }
+        }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
