@@ -2,7 +2,7 @@ FROM node as builder
 WORKDIR /usr/src/app
 COPY . .
 
-RUN npm install
+RUN npm install --force
 RUN npm run java_docker
 
 FROM nginx
